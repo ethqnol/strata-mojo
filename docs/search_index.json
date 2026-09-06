@@ -261,6 +261,15 @@
     "file": "strata/linear_model/sgd_classifier.mojo"
   },
   {
+    "module": "svm",
+    "name": "LinearSVC",
+    "kind": "struct",
+    "summary": "Linear Support Vector Classification.",
+    "ref_file": "reference/svm/LinearSVC",
+    "traits": "Classifier, Copyable, Movable, Serializable",
+    "file": "strata/svm/linear_svc.mojo"
+  },
+  {
     "module": "tree",
     "name": "DecisionTreeClassifier",
     "kind": "struct",

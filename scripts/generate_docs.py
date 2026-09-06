@@ -64,6 +64,13 @@ MODULE_METADATA = {
             "linear_model/sgd_classifier.mojo",
         ]
     },
+    "svm": {
+        "title": "Support Vector Machines",
+        "description": "Linear Support Vector Classification (LinearSVC) using Dual Coordinate Descent (LIBLINEAR) with hinge and squared hinge loss.",
+        "files": [
+            "svm/linear_svc.mojo",
+        ]
+    },
     "tree": {
         "title": "Decision Trees",
         "description": "Fast recursive classification (Gini, Entropy, Log-Loss) and regression (MSE, Friedman MSE, MAE) trees with streaming histogram split calculations.",

@@ -109,6 +109,7 @@ from .linear_model import (
 )
 from .decomposition import PCA, TruncatedSVD
 from .cluster import KMeans, MiniBatchKMeans, DBSCAN
+from .svm import LinearSVC
 from .metrics import (
     mean_squared_error,
     root_mean_squared_error,
