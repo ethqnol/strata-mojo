@@ -1,6 +1,6 @@
 # `mean_absolute_error`
 
-**Module**: [`strata.metrics`](index.md) &bull; **Kind**: `function`  
+**Module**: [`strata.metrics`](index.md) &bull; **Kind**: `function`
 **Source**: [`strata/metrics/regression.mojo`](file:////home/ewu/Code/Strata/strata/metrics/regression.mojo)
 
 ```mojo

@@ -1,6 +1,6 @@
 # `cross_val_score`
 
-**Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `function`  
+**Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `function`
 **Source**: [`strata/model_selection/validation.mojo`](file:////home/ewu/Code/Strata/strata/model_selection/validation.mojo)
 
 ```mojo

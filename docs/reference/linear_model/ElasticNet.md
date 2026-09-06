@@ -1,6 +1,6 @@
 # `ElasticNet`
 
-**Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`  
+**Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`
 **Source**: [`strata/linear_model/elastic_net.mojo`](file:////home/ewu/Code/Strata/strata/linear_model/elastic_net.mojo)
 
 ```mojo

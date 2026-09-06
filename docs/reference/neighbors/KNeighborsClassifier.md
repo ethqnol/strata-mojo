@@ -1,6 +1,6 @@
 # `KNeighborsClassifier`
 
-**Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable`  
+**Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable`
 **Source**: [`strata/neighbors/classification.mojo`](file:////home/ewu/Code/Strata/strata/neighbors/classification.mojo)
 
 ```mojo

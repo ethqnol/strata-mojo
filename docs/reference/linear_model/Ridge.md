@@ -1,6 +1,6 @@
 # `Ridge`
 
-**Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`  
+**Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`
 **Source**: [`strata/linear_model/ridge.mojo`](file:////home/ewu/Code/Strata/strata/linear_model/ridge.mojo)
 
 ```mojo

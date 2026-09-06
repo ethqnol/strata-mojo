@@ -1,6 +1,6 @@
 # `LogisticRegression`
 
-**Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable, Serializable`  
+**Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable, Serializable`
 **Source**: [`strata/linear_model/logistic_regression.mojo`](file:////home/ewu/Code/Strata/strata/linear_model/logistic_regression.mojo)
 
 ```mojo

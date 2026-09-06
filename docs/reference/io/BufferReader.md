@@ -1,6 +1,6 @@
 # `BufferReader`
 
-**Module**: [`strata.io`](index.md) &bull; **Kind**: `struct`  
+**Module**: [`strata.io`](index.md) &bull; **Kind**: `struct`
 **Source**: [`strata/io/serializer.mojo`](file:////home/ewu/Code/Strata/strata/io/serializer.mojo)
 
 ```mojo

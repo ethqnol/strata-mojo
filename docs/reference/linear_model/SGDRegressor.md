@@ -1,6 +1,6 @@
 # `SGDRegressor`
 
-**Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor`  
+**Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor`
 **Source**: [`strata/linear_model/sgd_regressor.mojo`](file:////home/ewu/Code/Strata/strata/linear_model/sgd_regressor.mojo)
 
 ```mojo

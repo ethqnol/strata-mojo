@@ -228,4 +228,3 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for development setup, coding conventio
 ---
 
 *The project logo was generated using AI assistance. The software code is licensed under the MIT License, but the logo artwork is distributed as-is without copyright protection.*
-

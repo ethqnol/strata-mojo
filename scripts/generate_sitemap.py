@@ -84,7 +84,7 @@ def discover_doc_pages(docs_dir: Path) -> list[dict]:
     and reference directories.
     """
     pages = []
-    
+
     # 1. Root landing page
     index_html = docs_dir / "index.html"
     pages.append({
@@ -113,7 +113,7 @@ def discover_doc_pages(docs_dir: Path) -> list[dict]:
     if ref_dir.exists():
         for mod_dir in sorted([d for d in ref_dir.iterdir() if d.is_dir()]):
             mod_key = mod_dir.name
-            
+
             # Module index
             mod_index = mod_dir / "index.md"
             if mod_index.exists():
@@ -143,7 +143,7 @@ def discover_doc_pages(docs_dir: Path) -> list[dict]:
 def build_sitemap_xml(base_url: str, pages: list[dict]) -> str:
     """Builds a formatted sitemap XML string."""
     clean_base = base_url.rstrip("/")
-    
+
     urlset = ET.Element("urlset")
     urlset.set("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9")
 
@@ -151,23 +151,23 @@ def build_sitemap_xml(base_url: str, pages: list[dict]) -> str:
         doc_id = p["doc_id"]
         rel_path = p["rel_path"]
         lastmod = p["lastmod"]
-        
+
         cfg = classify_route(doc_id)
-        
+
         url_el = ET.SubElement(urlset, "url")
-        
+
         loc_el = ET.SubElement(url_el, "loc")
         if not rel_path:
             loc_el.text = f"{clean_base}/"
         else:
             loc_el.text = f"{clean_base}/{rel_path}"
-            
+
         lastmod_el = ET.SubElement(url_el, "lastmod")
         lastmod_el.text = lastmod
-        
+
         changefreq_el = ET.SubElement(url_el, "changefreq")
         changefreq_el.text = cfg["changefreq"]
-        
+
         priority_el = ET.SubElement(url_el, "priority")
         priority_el.text = cfg["priority"]
 
@@ -188,7 +188,7 @@ def generate_sitemap(
 ) -> Path:
     """
     Main entrypoint to generate sitemap.xml.
-    
+
     Returns the path to the written sitemap.xml file.
     """
     if docs_dir is None:
@@ -201,7 +201,7 @@ def generate_sitemap(
 
     output_file.parent.mkdir(parents=True, exist_ok=True)
     output_file.write_text(xml_content, encoding="utf-8")
-    
+
     print(f"  ✓ Generated sitemap with {len(pages)} URLs at {output_file.relative_to(ROOT_DIR) if output_file.is_relative_to(ROOT_DIR) else output_file}")
     return output_file
 

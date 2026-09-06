@@ -1,6 +1,6 @@
 # `PRNG`
 
-**Module**: [`strata.utils`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable`  
+**Module**: [`strata.utils`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable`
 **Source**: [`strata/utils/random.mojo`](file:////home/ewu/Code/Strata/strata/utils/random.mojo)
 
 ```mojo

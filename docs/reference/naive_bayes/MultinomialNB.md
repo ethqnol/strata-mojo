@@ -1,6 +1,6 @@
 # `MultinomialNB`
 
-**Module**: [`strata.naive_bayes`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable, Serializable`  
+**Module**: [`strata.naive_bayes`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable, Serializable`
 **Source**: [`strata/naive_bayes/multinomial.mojo`](file:////home/ewu/Code/Strata/strata/naive_bayes/multinomial.mojo)
 
 ```mojo

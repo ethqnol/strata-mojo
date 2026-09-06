@@ -1,6 +1,6 @@
 # `silhouette_score`
 
-**Module**: [`strata.metrics`](index.md) &bull; **Kind**: `function`  
+**Module**: [`strata.metrics`](index.md) &bull; **Kind**: `function`
 **Source**: [`strata/metrics/cluster.mojo`](file:////home/ewu/Code/Strata/strata/metrics/cluster.mojo)
 
 ```mojo
