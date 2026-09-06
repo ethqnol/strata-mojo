@@ -1,6 +1,6 @@
 # `minkowski_distance`
 
-**Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `function`
+**Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `function`  
 **Source**: [`strata/neighbors/distance.mojo`](file:////home/ewu/Code/Strata/strata/neighbors/distance.mojo)
 
 ```mojo

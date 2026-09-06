@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -68,757 +68,763 @@
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/base/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/base/Classifier</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/base/Clusterer</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/base/Estimator</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/base/PipelineClassifier</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/base/PipelineRegressor</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/base/PipelineTransformer</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/base/Regressor</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/base/Transformer</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/cluster/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ethqnol.github.io/strata-mojo/#reference/cluster/DBSCAN</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/cluster/KMeans</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/cluster/MiniBatchKMeans</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/compose/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/compose/ColumnTransformer</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/Dataset</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/DatasetSplit</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/EigResult</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/Matrix</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/MatrixView</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/QRResult</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/SVDResult</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/SparseMatrix</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/csr_from_scipy</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/csr_to_scipy</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/matrix_from_numpy</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/core/matrix_to_numpy</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/decomposition/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/decomposition/PCA</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/decomposition/TruncatedSVD</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/ensemble/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/ensemble/HistGradientBoostingClassifier</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/ensemble/HistGradientBoostingRegressor</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/ensemble/RandomForestClassifier</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/ensemble/RandomForestRegressor</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/io/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/io/BufferReader</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/io/BufferWriter</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/io/Serializable</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/linear_model/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/linear_model/ElasticNet</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/linear_model/Lasso</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/linear_model/LinearRegression</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/linear_model/LogisticRegression</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/linear_model/Ridge</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/linear_model/SGDClassifier</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/linear_model/SGDRegressor</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/accuracy_score</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/confusion_matrix</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/f1_score</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/log_loss</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/mean_absolute_error</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/mean_squared_error</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/precision_score</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/r2_score</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/recall_score</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/roc_auc_score</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/root_mean_squared_error</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/silhouette_score</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/metrics/unique_labels</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/CrossValidateResult</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/GridSearchClassifier</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/GridSearchRegressor</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/KFold</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/RandomizedSearchClassifier</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/RandomizedSearchRegressor</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/ShuffleSplit</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/Split</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/StratifiedKFold</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/StratifiedShuffleSplit</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/TimeSeriesSplit</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/cross_val_predict</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/cross_val_score</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/model_selection/train_test_split</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/naive_bayes/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/naive_bayes/GaussianNB</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/naive_bayes/MultinomialNB</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/KDNode</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/KDTree</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/KNeighborsClassifier</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/KNeighborsRegressor</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/NearestNeighbors</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/NeighborDistIdx</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/_AxisIndexPair</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/chebyshev_distance</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/cosine_distance</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/euclidean_distance</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/manhattan_distance</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/minkowski_distance</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/pairwise_distances</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/row_distance</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/neighbors/sqeuclidean_distance</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/Binarizer</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/LabelEncoder</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/MinMaxScaler</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/Normalizer</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/OneHotEncoder</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/OrdinalEncoder</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/PolynomialFeatures</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/RobustScaler</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/SimpleImputer</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/preprocessing/StandardScaler</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/tree/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/tree/DecisionTreeClassifier</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/tree/DecisionTreeRegressor</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/index</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/ConvergenceError</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/DataConversionError</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/DimensionMismatchError</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/InvalidParameterError</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/NotFittedError</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/PRNG</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/check_X_y</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/check_array</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/check_consistent_length</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/check_finite</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/check_floating_dtype</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/check_is_fitted</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/check_sparse</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/log_sum_exp</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/sigmoid</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethqnol.github.io/strata-mojo/#reference/utils/softmax</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

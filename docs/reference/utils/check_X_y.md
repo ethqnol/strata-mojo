@@ -1,6 +1,6 @@
 # `check_X_y`
 
-**Module**: [`strata.utils`](index.md) &bull; **Kind**: `function`
+**Module**: [`strata.utils`](index.md) &bull; **Kind**: `function`  
 **Source**: [`strata/utils/validation.mojo`](file:////home/ewu/Code/Strata/strata/utils/validation.mojo)
 
 ```mojo

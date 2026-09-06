@@ -98,10 +98,11 @@ MODULE_METADATA = {
     },
     "cluster": {
         "title": "Clustering Algorithms",
-        "description": "SIMD Lloyd's algorithm K-Means with k-means++ initialization and streaming MiniBatchKMeans.",
+        "description": "Geometric partitioning K-Means with k-means++ initialization, streaming MiniBatchKMeans, and non-parametric density-based DBSCAN spatial clustering.",
         "files": [
             "cluster/kmeans.mojo",
             "cluster/minibatch_kmeans.mojo",
+            "cluster/dbscan.mojo",
         ]
     },
     "decomposition": {

@@ -1,6 +1,6 @@
 # `GridSearchClassifier`
 
-**Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable`
+**Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable`  
 **Source**: [`strata/model_selection/grid_search.mojo`](file:////home/ewu/Code/Strata/strata/model_selection/grid_search.mojo)
 
 ```mojo

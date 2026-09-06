@@ -108,7 +108,7 @@ from .linear_model import (
     SGDClassifier,
 )
 from .decomposition import PCA, TruncatedSVD
-from .cluster import KMeans, MiniBatchKMeans
+from .cluster import KMeans, MiniBatchKMeans, DBSCAN
 from .metrics import (
     mean_squared_error,
     root_mean_squared_error,

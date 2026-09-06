@@ -360,6 +360,15 @@
     "file": "strata/cluster/minibatch_kmeans.mojo"
   },
   {
+    "module": "cluster",
+    "name": "DBSCAN",
+    "kind": "struct",
+    "summary": "Density-Based Spatial Clustering of Applications with Noise (DBSCAN).",
+    "ref_file": "reference/cluster/DBSCAN",
+    "traits": "Clusterer, Copyable, Movable",
+    "file": "strata/cluster/dbscan.mojo"
+  },
+  {
     "module": "decomposition",
     "name": "PCA",
     "kind": "struct",

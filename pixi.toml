@@ -35,6 +35,7 @@ test-pca = "mojo run -I . -Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinke
 test-kmeans-common = "mojo run -I . -Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinker -lblas tests/test_kmeans_common.mojo"
 test-kmeans = "mojo run -I . -Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinker -lblas tests/test_kmeans.mojo"
 test-minibatch-kmeans = "mojo run -I . -Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinker -lblas tests/test_minibatch_kmeans.mojo"
+test-dbscan = "mojo run -I . -Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinker -lblas tests/test_dbscan.mojo"
 test-tree-regressor = "mojo run -I . tests/test_decision_tree_regressor.mojo"
 test-tree-classifier = "mojo run -I . tests/test_decision_tree_classifier.mojo"
 test-tree = { depends-on = ["test-tree-regressor", "test-tree-classifier"] }
@@ -48,7 +49,7 @@ test-sgd = "mojo run -I . tests/test_sgd.mojo"
 test-column-transformer = "mojo run -I . -Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinker -lblas tests/test_column_transformer.mojo"
 test-serializer = "mojo run -I . -Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinker -lblas tests/test_serializer.mojo"
 test-naive-bayes = "mojo run -I . -Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinker -lblas tests/test_naive_bayes.mojo"
-test-all = { depends-on = ["test-matrix", "test-linalg", "test-sparse", "test-math", "test-dataset", "test-pipelines", "test-core", "test-view", "test-interop", "test-large", "test-preprocessing", "test-model-selection", "test-metrics", "test-linear-regression", "test-ridge", "test-logistic-regression", "test-coordinate-descent", "test-sgd", "test-decomposition", "test-kmeans-common", "test-kmeans", "test-minibatch-kmeans", "test-tree-regressor", "test-tree-classifier", "test-rf-regressor", "test-rf-classifier", "test-hist-gradient-boosting", "test-column-transformer", "test-serializer", "test-neighbors", "test-naive-bayes"] }
+test-all = { depends-on = ["test-matrix", "test-linalg", "test-sparse", "test-math", "test-dataset", "test-pipelines", "test-core", "test-view", "test-interop", "test-large", "test-preprocessing", "test-model-selection", "test-metrics", "test-linear-regression", "test-ridge", "test-logistic-regression", "test-coordinate-descent", "test-sgd", "test-decomposition", "test-kmeans-common", "test-kmeans", "test-minibatch-kmeans", "test-dbscan", "test-tree-regressor", "test-tree-classifier", "test-rf-regressor", "test-rf-classifier", "test-hist-gradient-boosting", "test-column-transformer", "test-serializer", "test-neighbors", "test-naive-bayes"] }
 test = "find tests -name 'test_*.mojo' -exec mojo -I . -Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinker -lblas {} \\;"
 test-runner = "mojo run -I . scripts/run_tests.mojo"
 test-seq = "mojo run -I . scripts/run_tests.mojo --single-threaded"
