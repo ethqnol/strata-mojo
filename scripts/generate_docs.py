@@ -66,9 +66,10 @@ MODULE_METADATA = {
     },
     "svm": {
         "title": "Support Vector Machines",
-        "description": "Linear Support Vector Classification (LinearSVC) using Dual Coordinate Descent (LIBLINEAR) with hinge and squared hinge loss.",
+        "description": "Linear Support Vector Classification (LinearSVC) and Regression (LinearSVR) using Dual Coordinate Descent (LIBLINEAR) with hinge and epsilon-insensitive losses.",
         "files": [
             "svm/linear_svc.mojo",
+            "svm/linear_svr.mojo",
         ]
     },
     "tree": {

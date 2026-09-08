@@ -270,6 +270,15 @@
     "file": "strata/svm/linear_svc.mojo"
   },
   {
+    "module": "svm",
+    "name": "LinearSVR",
+    "kind": "struct",
+    "summary": "Linear Support Vector Regression.",
+    "ref_file": "reference/svm/LinearSVR",
+    "traits": "Copyable, Movable, Regressor, Serializable",
+    "file": "strata/svm/linear_svr.mojo"
+  },
+  {
     "module": "tree",
     "name": "DecisionTreeClassifier",
     "kind": "struct",

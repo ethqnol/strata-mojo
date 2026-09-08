@@ -1,6 +1,6 @@
 # `strata.svm`
 
-Linear Support Vector Classification (LinearSVC) using Dual Coordinate Descent (LIBLINEAR) with hinge and squared hinge loss.
+Linear Support Vector Classification (LinearSVC) and Regression (LinearSVR) using Dual Coordinate Descent (LIBLINEAR) with hinge and epsilon-insensitive losses.
 
 ---
 
@@ -9,3 +9,4 @@ Linear Support Vector Classification (LinearSVC) using Dual Coordinate Descent (
 | Struct | Description |
 | :--- | :--- |
 | [`LinearSVC`](LinearSVC.md) | Linear Support Vector Classification. |
+| [`LinearSVR`](LinearSVR.md) | Linear Support Vector Regression. |
