@@ -38,7 +38,9 @@ def run_standard_scaler(
         var t3 = perf_counter_ns()
         trans_timer.add(t3 - t2)
 
-    var fit_res = fit_timer.compute_stats("StandardScaler", "fit", samples, features)
+    var fit_res = fit_timer.compute_stats(
+        "StandardScaler", "fit", samples, features
+    )
     var trans_res = trans_timer.compute_stats(
         "StandardScaler", "transform", samples, features
     )
@@ -71,7 +73,9 @@ def run_minmax_scaler(
         var t3 = perf_counter_ns()
         trans_timer.add(t3 - t2)
 
-    var fit_res = fit_timer.compute_stats("MinMaxScaler", "fit", samples, features)
+    var fit_res = fit_timer.compute_stats(
+        "MinMaxScaler", "fit", samples, features
+    )
     var trans_res = trans_timer.compute_stats(
         "MinMaxScaler", "transform", samples, features
     )
@@ -104,7 +108,9 @@ def run_robust_scaler(
         var t3 = perf_counter_ns()
         trans_timer.add(t3 - t2)
 
-    var fit_res = fit_timer.compute_stats("RobustScaler", "fit", samples, features)
+    var fit_res = fit_timer.compute_stats(
+        "RobustScaler", "fit", samples, features
+    )
     var trans_res = trans_timer.compute_stats(
         "RobustScaler", "transform", samples, features
     )

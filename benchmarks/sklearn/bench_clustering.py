@@ -4,7 +4,7 @@ import time
 import math
 import numpy as np
 import scipy.sparse as sp
-from sklearn.cluster import KMeans, MiniBatchKMeans
+from sklearn.cluster import KMeans, MiniBatchKMeans, DBSCAN
 from sklearn.decomposition import PCA, TruncatedSVD
 
 
@@ -194,8 +194,40 @@ def main():
 
     run_kmeans(samples, features, warmups, iters)
     run_minibatch_kmeans(samples, features, warmups, iters)
+    run_dbscan(samples, features, warmups, iters)
     run_pca(samples, features, warmups, iters)
     run_truncated_svd(samples, features, warmups, iters)
+
+
+def run_dbscan(samples, features, warmups, iters):
+    n_dbscan = samples if samples <= 5000 else 5000
+    X = make_synthetic_blobs(n_dbscan, features, n_clusters=5, seed=42)
+
+    for _ in range(warmups):
+        db = DBSCAN(eps=2.0, min_samples=5)
+        db.fit(X)
+
+    fit_times, pred_times = [], []
+    last_n_clusters = 0.0
+
+    for _ in range(iters):
+        db = DBSCAN(eps=2.0, min_samples=5)
+        t0 = time.perf_counter_ns()
+        db.fit(X)
+        t1 = time.perf_counter_ns()
+        fit_times.append(t1 - t0)
+
+        t2 = time.perf_counter_ns()
+        _ = db.fit_predict(X)
+        t3 = time.perf_counter_ns()
+        pred_times.append(t3 - t2)
+
+        unique_labels = set(db.labels_)
+        n_clusters = len(unique_labels) - (1 if -1 in unique_labels else 0)
+        last_n_clusters = float(n_clusters)
+
+    print(json.dumps(compute_stats("DBSCAN", "fit", n_dbscan, features, fit_times, "n_clusters", last_n_clusters)))
+    print(json.dumps(compute_stats("DBSCAN", "predict", n_dbscan, features, pred_times, "n_clusters", last_n_clusters)))
 
 
 if __name__ == "__main__":

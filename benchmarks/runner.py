@@ -83,6 +83,17 @@ SUITES = {
             "large": (2048, 500000, 3, 5),
         },
     },
+    "naive_bayes": {
+        "name": "Naive Bayes Classifiers",
+        "mojo": "benchmarks/mojo/bench_naive_bayes.mojo",
+        "sklearn": "benchmarks/sklearn/bench_naive_bayes.py",
+        "scale_params": {
+            "quick": (2000, 15, 1, 2),
+            "small": (20000, 30, 2, 5),
+            "medium": (100000, 50, 2, 5),
+            "large": (500000, 100, 3, 5),
+        },
+    },
 }
 
 # ANSI Color Codes
@@ -348,7 +359,7 @@ def main():
     parser = argparse.ArgumentParser(description="Strata vs Scikit-Learn Benchmark Runner")
     parser.add_argument(
         "--suite",
-        choices=["all", "linear", "trees", "clustering", "neighbors", "preprocessing", "linalg"],
+        choices=["all", "linear", "trees", "clustering", "neighbors", "preprocessing", "linalg", "naive_bayes"],
         default="all",
         help="Benchmark suite to execute (default: all)",
     )
