@@ -57,7 +57,7 @@ test-runner = "mojo run -I . scripts/run_tests.mojo"
 test-seq = "mojo run -I . scripts/run_tests.mojo --single-threaded"
 format = "mojo format strata tests"
 format-check = "mojo format strata tests && git diff --exit-code -- strata tests"
-ci = { depends-on = ["format-check", "build", "test-all"] }
+ci = { depends-on = ["format-check", "build", "test-runner", "build-docs"] }
 generate-docs = "python scripts/generate_docs.py"
 generate-sitemap = "python scripts/generate_sitemap.py"
 build-docs = { depends-on = ["generate-docs", "generate-sitemap"] }
