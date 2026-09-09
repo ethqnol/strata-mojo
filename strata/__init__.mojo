@@ -145,7 +145,12 @@ from .neighbors import (
     KDTree,
 )
 from .compose import ColumnTransformer
-from .naive_bayes import GaussianNB, MultinomialNB
+from .naive_bayes import (
+    GaussianNB,
+    MultinomialNB,
+    BernoulliNB,
+    ComplementNB,
+)
 from .io import (
     BufferWriter,
     BufferReader,

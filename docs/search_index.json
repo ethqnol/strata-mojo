@@ -351,6 +351,24 @@
     "file": "strata/naive_bayes/multinomial.mojo"
   },
   {
+    "module": "naive_bayes",
+    "name": "BernoulliNB",
+    "kind": "struct",
+    "summary": "Bernoulli Naive Bayes classifier for multivariate Bernoulli models.",
+    "ref_file": "reference/naive_bayes/BernoulliNB",
+    "traits": "Classifier, Copyable, Movable, Serializable",
+    "file": "strata/naive_bayes/bernoulli.mojo"
+  },
+  {
+    "module": "naive_bayes",
+    "name": "ComplementNB",
+    "kind": "struct",
+    "summary": "Complement Naive Bayes classifier (Rennie et al., 2003).",
+    "ref_file": "reference/naive_bayes/ComplementNB",
+    "traits": "Classifier, Copyable, Movable, Serializable",
+    "file": "strata/naive_bayes/complement.mojo"
+  },
+  {
     "module": "compose",
     "name": "ColumnTransformer",
     "kind": "struct",

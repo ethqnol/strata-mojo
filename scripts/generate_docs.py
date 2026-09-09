@@ -91,10 +91,12 @@ MODULE_METADATA = {
     },
     "naive_bayes": {
         "title": "Naive Bayes Classifiers",
-        "description": "GaussianNB for continuous features with adaptive variance smoothing, and MultinomialNB for discrete count data with dense and sparse CSR matrix acceleration.",
+        "description": "GaussianNB for continuous features, MultinomialNB for discrete counts, BernoulliNB for multivariate binary/boolean features, and ComplementNB for imbalanced text classification.",
         "files": [
             "naive_bayes/gaussian.mojo",
             "naive_bayes/multinomial.mojo",
+            "naive_bayes/bernoulli.mojo",
+            "naive_bayes/complement.mojo",
         ]
     },
     "compose": {
