@@ -1,6 +1,6 @@
 # `DatasetSplit`
 
-**Module**: [`strata.core`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Movable`
+**Module**: [`strata.core`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Movable`  
 **Source**: [`strata/core/dataset.mojo`](file:////home/ewu/Code/Strata/strata/core/dataset.mojo)
 
 ```mojo

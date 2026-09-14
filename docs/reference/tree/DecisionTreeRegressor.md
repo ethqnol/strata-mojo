@@ -1,6 +1,6 @@
 # `DecisionTreeRegressor`
 
-**Module**: [`strata.tree`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`
+**Module**: [`strata.tree`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`  
 **Source**: [`strata/tree/regressor.mojo`](file:////home/ewu/Code/Strata/strata/tree/regressor.mojo)
 
 ```mojo

@@ -4,6 +4,7 @@ from strata import (
     Matrix,
     KMeans,
     MiniBatchKMeans,
+    DBSCAN,
     PCA,
     TruncatedSVD,
 )
@@ -15,12 +16,16 @@ from benchmarks.mojo.bench_utils import (
 
 
 def run_kmeans(samples: Int, features: Int, warmups: Int, iters: Int) raises:
-    var X = make_synthetic_blobs(
-        samples, features, n_clusters=8, seed=42
-    )
+    var X = make_synthetic_blobs(samples, features, n_clusters=8, seed=42)
 
     for _ in range(warmups):
-        var km = KMeans(n_clusters=8, init="k-means++", max_iter=100, n_init=1, random_state=42)
+        var km = KMeans(
+            n_clusters=8,
+            init="k-means++",
+            max_iter=100,
+            n_init=1,
+            random_state=42,
+        )
         km.fit(X)
         _ = km.predict(X)
 
@@ -29,7 +34,13 @@ def run_kmeans(samples: Int, features: Int, warmups: Int, iters: Int) raises:
     var last_inertia: Float64 = 0.0
 
     for _ in range(iters):
-        var km = KMeans(n_clusters=8, init="k-means++", max_iter=100, n_init=1, random_state=42)
+        var km = KMeans(
+            n_clusters=8,
+            init="k-means++",
+            max_iter=100,
+            n_init=1,
+            random_state=42,
+        )
         var t0 = perf_counter_ns()
         km.fit(X)
         var t1 = perf_counter_ns()
@@ -65,9 +76,7 @@ def run_kmeans(samples: Int, features: Int, warmups: Int, iters: Int) raises:
 def run_minibatch_kmeans(
     samples: Int, features: Int, warmups: Int, iters: Int
 ) raises:
-    var X = make_synthetic_blobs(
-        samples, features, n_clusters=8, seed=42
-    )
+    var X = make_synthetic_blobs(samples, features, n_clusters=8, seed=42)
 
     for _ in range(warmups):
         var mbk = MiniBatchKMeans(
@@ -117,9 +126,7 @@ def run_minibatch_kmeans(
 
 
 def run_pca(samples: Int, features: Int, warmups: Int, iters: Int) raises:
-    var X = make_synthetic_blobs(
-        samples, features, n_clusters=5, seed=42
-    )
+    var X = make_synthetic_blobs(samples, features, n_clusters=5, seed=42)
     var n_comp = 5
     if n_comp > features:
         n_comp = features
@@ -170,7 +177,9 @@ def run_pca(samples: Int, features: Int, warmups: Int, iters: Int) raises:
 def run_truncated_svd(
     samples: Int, features: Int, warmups: Int, iters: Int
 ) raises:
-    var X_csr = make_synthetic_sparse(samples, features, nnz_per_row=10, seed=42)
+    var X_csr = make_synthetic_sparse(
+        samples, features, nnz_per_row=10, seed=42
+    )
     var n_comp = 5
     if n_comp > features:
         n_comp = features
@@ -229,5 +238,53 @@ def main() raises:
 
     run_kmeans(samples, features, warmups, iters)
     run_minibatch_kmeans(samples, features, warmups, iters)
+    run_dbscan(samples, features, warmups, iters)
     run_pca(samples, features, warmups, iters)
     run_truncated_svd(samples, features, warmups, iters)
+
+
+def run_dbscan(samples: Int, features: Int, warmups: Int, iters: Int) raises:
+    var n_dbscan = samples if samples <= 5000 else 5000
+    var X = make_synthetic_blobs(n_dbscan, features, n_clusters=5, seed=42)
+
+    for _ in range(warmups):
+        var db = DBSCAN(eps=2.0, min_samples=5)
+        db.fit(X)
+        _ = db.predict(X)
+
+    var fit_timer = BenchTimer()
+    var pred_timer = BenchTimer()
+    var last_n_clusters: Float64 = 0.0
+
+    for _ in range(iters):
+        var db = DBSCAN(eps=2.0, min_samples=5)
+        var t0 = perf_counter_ns()
+        db.fit(X)
+        var t1 = perf_counter_ns()
+        fit_timer.add(t1 - t0)
+
+        var t2 = perf_counter_ns()
+        _ = db.predict(X)
+        var t3 = perf_counter_ns()
+        pred_timer.add(t3 - t2)
+
+        last_n_clusters = Float64(db.n_clusters_)
+
+    var fit_res = fit_timer.compute_stats(
+        "DBSCAN",
+        "fit",
+        n_dbscan,
+        features,
+        "n_clusters",
+        last_n_clusters,
+    )
+    var pred_res = pred_timer.compute_stats(
+        "DBSCAN",
+        "predict",
+        n_dbscan,
+        features,
+        "n_clusters",
+        last_n_clusters,
+    )
+    print(fit_res.to_json())
+    print(pred_res.to_json())

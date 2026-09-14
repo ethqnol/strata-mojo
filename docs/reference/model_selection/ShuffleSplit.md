@@ -1,6 +1,6 @@
 # `ShuffleSplit`
 
-**Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Movable`
+**Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Movable`  
 **Source**: [`strata/model_selection/shuffle_split.mojo`](file:////home/ewu/Code/Strata/strata/model_selection/shuffle_split.mojo)
 
 ```mojo

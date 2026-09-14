@@ -1,6 +1,6 @@
 # `train_test_split`
 
-**Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `function`
+**Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `function`  
 **Source**: [`strata/model_selection/split.mojo`](file:////home/ewu/Code/Strata/strata/model_selection/split.mojo)
 
 ```mojo

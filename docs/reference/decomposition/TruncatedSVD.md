@@ -1,6 +1,6 @@
 # `TruncatedSVD`
 
-**Module**: [`strata.decomposition`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Transformer`
+**Module**: [`strata.decomposition`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Transformer`  
 **Source**: [`strata/decomposition/truncated_svd.mojo`](file:////home/ewu/Code/Strata/strata/decomposition/truncated_svd.mojo)
 
 ```mojo

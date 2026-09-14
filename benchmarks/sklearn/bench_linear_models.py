@@ -12,6 +12,7 @@ from sklearn.linear_model import (
     SGDRegressor,
     SGDClassifier,
 )
+from sklearn.svm import LinearSVC, LinearSVR
 from sklearn.metrics import r2_score, accuracy_score
 
 
@@ -291,6 +292,66 @@ def main():
     run_logistic_regression(samples, features, warmups, iters)
     run_sgd_regressor(samples, features, warmups, iters)
     run_sgd_classifier(samples, features, warmups, iters)
+    run_linear_svc(samples, features, warmups, iters)
+    run_linear_svr(samples, features, warmups, iters)
+
+
+def run_linear_svc(samples, features, warmups, iters):
+    X, y = make_synthetic_classification(samples, features, n_classes=2, seed=42)
+
+    for _ in range(warmups):
+        clf = LinearSVC(C=1.0, max_iter=1000, random_state=42)
+        clf.fit(X, y)
+        _ = clf.predict(X)
+
+    fit_times, pred_times = [], []
+    last_acc = 0.0
+
+    for _ in range(iters):
+        clf = LinearSVC(C=1.0, max_iter=1000, random_state=42)
+        t0 = time.perf_counter_ns()
+        clf.fit(X, y)
+        t1 = time.perf_counter_ns()
+        fit_times.append(t1 - t0)
+
+        t2 = time.perf_counter_ns()
+        preds = clf.predict(X)
+        t3 = time.perf_counter_ns()
+        pred_times.append(t3 - t2)
+
+        last_acc = float(accuracy_score(y, preds))
+
+    print(json.dumps(compute_stats("LinearSVC", "fit", samples, features, fit_times, "accuracy", last_acc)))
+    print(json.dumps(compute_stats("LinearSVC", "predict", samples, features, pred_times, "accuracy", last_acc)))
+
+
+def run_linear_svr(samples, features, warmups, iters):
+    X, y = make_synthetic_regression(samples, features, seed=42)
+
+    for _ in range(warmups):
+        reg = LinearSVR(C=1.0, epsilon=0.1, max_iter=1000, random_state=42)
+        reg.fit(X, y)
+        _ = reg.predict(X)
+
+    fit_times, pred_times = [], []
+    last_r2 = 0.0
+
+    for _ in range(iters):
+        reg = LinearSVR(C=1.0, epsilon=0.1, max_iter=1000, random_state=42)
+        t0 = time.perf_counter_ns()
+        reg.fit(X, y)
+        t1 = time.perf_counter_ns()
+        fit_times.append(t1 - t0)
+
+        t2 = time.perf_counter_ns()
+        preds = reg.predict(X)
+        t3 = time.perf_counter_ns()
+        pred_times.append(t3 - t2)
+
+        last_r2 = float(r2_score(y, preds))
+
+    print(json.dumps(compute_stats("LinearSVR", "fit", samples, features, fit_times, "r2_score", last_r2)))
+    print(json.dumps(compute_stats("LinearSVR", "predict", samples, features, pred_times, "r2_score", last_r2)))
 
 
 if __name__ == "__main__":

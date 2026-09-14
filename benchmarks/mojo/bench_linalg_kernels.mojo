@@ -77,7 +77,9 @@ def run_spmv(dim: Int, nnz_per_row: Int, warmups: Int, iters: Int) raises:
     print(res.to_json())
 
 
-def run_spmm(dim: Int, k_cols: Int, nnz_per_row: Int, warmups: Int, iters: Int) raises:
+def run_spmm(
+    dim: Int, k_cols: Int, nnz_per_row: Int, warmups: Int, iters: Int
+) raises:
     var A = make_synthetic_sparse(dim, dim, nnz_per_row=nnz_per_row, seed=42)
     var B = Matrix[DType.float64](dim, k_cols, 1.0)
 

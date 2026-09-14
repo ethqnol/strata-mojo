@@ -1,6 +1,6 @@
 # `HistGradientBoostingRegressor`
 
-**Module**: [`strata.ensemble`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor`
+**Module**: [`strata.ensemble`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor`  
 **Source**: [`strata/ensemble/hist_gradient_boosting_regressor.mojo`](file:////home/ewu/Code/Strata/strata/ensemble/hist_gradient_boosting_regressor.mojo)
 
 ```mojo

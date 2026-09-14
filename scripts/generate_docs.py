@@ -64,6 +64,14 @@ MODULE_METADATA = {
             "linear_model/sgd_classifier.mojo",
         ]
     },
+    "svm": {
+        "title": "Support Vector Machines",
+        "description": "Linear Support Vector Classification (LinearSVC) and Regression (LinearSVR) using Dual Coordinate Descent (LIBLINEAR) with hinge and epsilon-insensitive losses.",
+        "files": [
+            "svm/linear_svc.mojo",
+            "svm/linear_svr.mojo",
+        ]
+    },
     "tree": {
         "title": "Decision Trees",
         "description": "Fast recursive classification (Gini, Entropy, Log-Loss) and regression (MSE, Friedman MSE, MAE) trees with streaming histogram split calculations.",
@@ -83,10 +91,12 @@ MODULE_METADATA = {
     },
     "naive_bayes": {
         "title": "Naive Bayes Classifiers",
-        "description": "GaussianNB for continuous features with adaptive variance smoothing, and MultinomialNB for discrete count data with dense and sparse CSR matrix acceleration.",
+        "description": "GaussianNB for continuous features, MultinomialNB for discrete counts, BernoulliNB for multivariate binary/boolean features, and ComplementNB for imbalanced text classification.",
         "files": [
             "naive_bayes/gaussian.mojo",
             "naive_bayes/multinomial.mojo",
+            "naive_bayes/bernoulli.mojo",
+            "naive_bayes/complement.mojo",
         ]
     },
     "compose": {
@@ -98,10 +108,11 @@ MODULE_METADATA = {
     },
     "cluster": {
         "title": "Clustering Algorithms",
-        "description": "SIMD Lloyd's algorithm K-Means with k-means++ initialization and streaming MiniBatchKMeans.",
+        "description": "Geometric partitioning K-Means with k-means++ initialization, streaming MiniBatchKMeans, and non-parametric density-based DBSCAN spatial clustering.",
         "files": [
             "cluster/kmeans.mojo",
             "cluster/minibatch_kmeans.mojo",
+            "cluster/dbscan.mojo",
         ]
     },
     "decomposition": {

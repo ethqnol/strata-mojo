@@ -1,6 +1,6 @@
 # `f1_score`
 
-**Module**: [`strata.metrics`](index.md) &bull; **Kind**: `function`
+**Module**: [`strata.metrics`](index.md) &bull; **Kind**: `function`  
 **Source**: [`strata/metrics/classification.mojo`](file:////home/ewu/Code/Strata/strata/metrics/classification.mojo)
 
 ```mojo

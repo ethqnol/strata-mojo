@@ -11,6 +11,8 @@ from strata import (
     Dataset,
     GaussianNB,
     MultinomialNB,
+    BernoulliNB,
+    ComplementNB,
     StandardScaler,
     PipelineClassifier,
     DimensionMismatchError,
@@ -20,6 +22,7 @@ from strata import (
     BufferReader,
 )
 from strata.base import fit, predict, predict_proba
+from strata.io.serializer import dumps, loads
 
 
 def test_gaussian_nb_binary() raises:
@@ -475,6 +478,544 @@ def test_multinomial_nb_invalid_priors_and_dimension_mismatch() raises:
     var X_wrong_dim = Matrix[DType.float64](2, 3, 0)
     with assert_raises():
         _ = mnb.predict(X_wrong_dim)
+
+
+def test_bernoulli_nb_binary_dense() raises:
+    # 4 samples, 4 binary features
+    var X = Matrix[DType.float64](4, 4, 0)
+    X[0, 0] = 1.0
+    X[0, 1] = 0.0
+    X[0, 2] = 1.0
+    X[0, 3] = 0.0
+    X[1, 0] = 0.0
+    X[1, 1] = 1.0
+    X[1, 2] = 0.0
+    X[1, 3] = 1.0
+    X[2, 0] = 1.0
+    X[2, 1] = 1.0
+    X[2, 2] = 1.0
+    X[2, 3] = 0.0
+    X[3, 0] = 0.0
+    X[3, 1] = 0.0
+    X[3, 2] = 1.0
+    X[3, 3] = 1.0
+
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var bnb = BernoulliNB[DType.float64](alpha=1.0, binarize=0.0)
+    bnb.fit(X, y)
+
+    assert_true(bnb.is_fitted)
+    assert_equal(len(bnb.classes_), 2)
+    assert_equal(bnb.classes_[0], 0)
+    assert_equal(bnb.classes_[1], 1)
+
+    var preds = bnb.predict(X)
+    for i in range(4):
+        assert_equal(preds[i], Int(y[i]))
+
+    var probs = bnb.predict_proba(X)
+    assert_equal(probs.rows, 4)
+    assert_equal(probs.cols, 2)
+    for i in range(4):
+        var row_sum = probs[i, 0] + probs[i, 1]
+        assert_almost_equal(row_sum, 1.0, rtol=1e-4)
+
+
+def test_bernoulli_nb_multiclass() raises:
+    var X = Matrix[DType.float64](6, 3, 0)
+    # Class 0: feature 0 active
+    X[0, 0] = 1.0
+    X[0, 1] = 0.0
+    X[0, 2] = 0.0
+    X[1, 0] = 1.0
+    X[1, 1] = 0.0
+    X[1, 2] = 0.0
+    # Class 1: feature 1 active
+    X[2, 0] = 0.0
+    X[2, 1] = 1.0
+    X[2, 2] = 0.0
+    X[3, 0] = 0.0
+    X[3, 1] = 1.0
+    X[3, 2] = 0.0
+    # Class 2: feature 2 active
+    X[4, 0] = 0.0
+    X[4, 1] = 0.0
+    X[4, 2] = 1.0
+    X[5, 0] = 0.0
+    X[5, 1] = 0.0
+    X[5, 2] = 1.0
+
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(0)
+    y.append(1)
+    y.append(1)
+    y.append(2)
+    y.append(2)
+
+    var bnb = BernoulliNB[DType.float64](alpha=1.0)
+    bnb.fit(X, y)
+
+    assert_equal(len(bnb.classes_), 3)
+    var preds = bnb.predict(X)
+    for i in range(6):
+        assert_equal(preds[i], Int(y[i]))
+
+
+def test_bernoulli_nb_binarization() raises:
+    # Continuous values thresholded at 2.5
+    var X = Matrix[DType.float64](4, 2, 0)
+    X[0, 0] = 1.0
+    X[0, 1] = 5.0
+    X[1, 0] = 4.0
+    X[1, 1] = 1.0
+    X[2, 0] = 0.5
+    X[2, 1] = 3.0
+    X[3, 0] = 6.0
+    X[3, 1] = 2.0
+
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var bnb = BernoulliNB[DType.float64](alpha=1.0, binarize=2.5)
+    bnb.fit(X, y)
+
+    var preds = bnb.predict(X)
+    for i in range(4):
+        assert_equal(preds[i], Int(y[i]))
+
+
+def test_bernoulli_nb_sparse_csr() raises:
+    var indptr = List[Int]()
+    indptr.append(0)
+    indptr.append(2)
+    indptr.append(4)
+    indptr.append(7)
+    indptr.append(9)
+    var indices = List[Int]()
+    indices.append(0)
+    indices.append(2)
+    indices.append(1)
+    indices.append(3)
+    indices.append(0)
+    indices.append(1)
+    indices.append(2)
+    indices.append(2)
+    indices.append(3)
+    var data = List[Scalar[DType.float64]]()
+    for _ in range(9):
+        data.append(1.0)
+
+    var csr = CSRMatrix[DType.float64](4, 4, data^, indices^, indptr^)
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var bnb = BernoulliNB[DType.float64](alpha=1.0)
+    bnb.fit(csr, y)
+
+    var preds = bnb.predict(csr)
+    assert_equal(preds[0], 0)
+    assert_equal(preds[1], 1)
+    assert_equal(preds[2], 0)
+    assert_equal(preds[3], 1)
+
+
+def test_bernoulli_nb_uniform_vs_learned_prior() raises:
+    var X = Matrix[DType.float64](4, 2, 0)
+    X[0, 0] = 1.0
+    X[0, 1] = 0.0
+    X[1, 0] = 1.0
+    X[1, 1] = 0.0
+    X[2, 0] = 1.0
+    X[2, 1] = 0.0
+    X[3, 0] = 0.0
+    X[3, 1] = 1.0
+
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(0)
+    y.append(0)
+    y.append(1)
+
+    var bnb_uniform = BernoulliNB[DType.float64](fit_prior=False)
+    bnb_uniform.fit(X, y)
+    assert_almost_equal(
+        bnb_uniform.class_log_prior_[0], bnb_uniform.class_log_prior_[1]
+    )
+
+    var bnb_learned = BernoulliNB[DType.float64](fit_prior=True)
+    bnb_learned.fit(X, y)
+    assert_true(
+        bnb_learned.class_log_prior_[0] > bnb_learned.class_log_prior_[1]
+    )
+
+
+def test_bernoulli_nb_serialization() raises:
+    var X = Matrix[DType.float64](4, 3, 0)
+    X[0, 0] = 1.0
+    X[0, 1] = 0.0
+    X[0, 2] = 1.0
+    X[1, 0] = 0.0
+    X[1, 1] = 1.0
+    X[1, 2] = 0.0
+    X[2, 0] = 1.0
+    X[2, 1] = 0.0
+    X[2, 2] = 1.0
+    X[3, 0] = 0.0
+    X[3, 1] = 1.0
+    X[3, 2] = 1.0
+
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var bnb = BernoulliNB[DType.float64](alpha=0.5)
+    bnb.fit(X, y)
+
+    var bytes = dumps(bnb)
+    var restored = loads[BernoulliNB[DType.float64]](bytes)
+
+    assert_true(restored.is_fitted)
+    assert_equal(restored.n_features_in_, bnb.n_features_in_)
+    assert_almost_equal(restored.alpha, bnb.alpha)
+
+    var p1 = bnb.predict(X)
+    var p2 = restored.predict(X)
+    for i in range(4):
+        assert_equal(p1[i], p2[i])
+
+
+def test_bernoulli_nb_copy_semantics() raises:
+    var X = Matrix[DType.float64](4, 2, 0)
+    X[0, 0] = 1.0
+    X[0, 1] = 0.0
+    X[1, 0] = 0.0
+    X[1, 1] = 1.0
+    X[2, 0] = 1.0
+    X[2, 1] = 1.0
+    X[3, 0] = 0.0
+    X[3, 1] = 0.0
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var bnb1 = BernoulliNB[DType.float64](alpha=1.0)
+    bnb1.fit(X, y)
+
+    var bnb2 = bnb1.copy()
+    assert_true(bnb2.is_fitted)
+    assert_equal(bnb2.n_features_in_, 2)
+
+    var y2 = List[Scalar[DType.int32]]()
+    y2.append(1)
+    y2.append(0)
+    y2.append(1)
+    y2.append(0)
+    bnb2.fit(X, y2)
+
+    assert_equal(bnb1.predict(X)[0], 0)
+    assert_equal(bnb2.predict(X)[0], 1)
+
+
+def test_bernoulli_nb_error_handling() raises:
+    with assert_raises():
+        _ = BernoulliNB[DType.float64](alpha=-1.0)
+
+    var bnb = BernoulliNB[DType.float64]()
+    var X = Matrix[DType.float64](2, 2, 0)
+    with assert_raises():
+        _ = bnb.predict(X)
+
+    var y_single_class = List[Scalar[DType.int32]]()
+    y_single_class.append(0)
+    y_single_class.append(0)
+    with assert_raises():
+        bnb.fit(X, y_single_class)
+
+
+def test_complement_nb_binary_dense() raises:
+    var X = Matrix[DType.float64](4, 4, 0)
+    X[0, 0] = 2.0
+    X[0, 1] = 0.0
+    X[0, 2] = 1.0
+    X[0, 3] = 0.0
+    X[1, 0] = 0.0
+    X[1, 1] = 3.0
+    X[1, 2] = 0.0
+    X[1, 3] = 1.0
+    X[2, 0] = 1.0
+    X[2, 1] = 1.0
+    X[2, 2] = 1.0
+    X[2, 3] = 0.0
+    X[3, 0] = 0.0
+    X[3, 1] = 0.0
+    X[3, 2] = 2.0
+    X[3, 3] = 3.0
+
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var cnb = ComplementNB[DType.float64](alpha=1.0)
+    cnb.fit(X, y)
+
+    assert_true(cnb.is_fitted)
+    assert_equal(len(cnb.classes_), 2)
+    assert_equal(cnb.classes_[0], 0)
+    assert_equal(cnb.classes_[1], 1)
+
+    var preds = cnb.predict(X)
+    for i in range(4):
+        assert_equal(preds[i], Int(y[i]))
+
+    var probs = cnb.predict_proba(X)
+    assert_equal(probs.rows, 4)
+    assert_equal(probs.cols, 2)
+    for i in range(4):
+        var row_sum = probs[i, 0] + probs[i, 1]
+        assert_almost_equal(row_sum, 1.0, rtol=1e-4)
+
+
+def test_complement_nb_imbalanced_multiclass() raises:
+    # 3 classes with imbalanced representation
+    var X = Matrix[DType.float64](7, 3, 0)
+    # Class 0 (4 samples): rich in feature 0
+    X[0, 0] = 5.0
+    X[0, 1] = 0.0
+    X[0, 2] = 0.0
+    X[1, 0] = 4.0
+    X[1, 1] = 0.0
+    X[1, 2] = 1.0
+    X[2, 0] = 3.0
+    X[2, 1] = 1.0
+    X[2, 2] = 0.0
+    X[3, 0] = 4.0
+    X[3, 1] = 0.0
+    X[3, 2] = 0.0
+    # Class 1 (2 samples): rich in feature 1
+    X[4, 0] = 0.0
+    X[4, 1] = 5.0
+    X[4, 2] = 0.0
+    X[5, 0] = 1.0
+    X[5, 1] = 4.0
+    X[5, 2] = 0.0
+    # Class 2 (1 sample): rich in feature 2
+    X[6, 0] = 0.0
+    X[6, 1] = 0.0
+    X[6, 2] = 6.0
+
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(0)
+    y.append(0)
+    y.append(0)
+    y.append(1)
+    y.append(1)
+    y.append(2)
+
+    var cnb = ComplementNB[DType.float64](alpha=1.0)
+    cnb.fit(X, y)
+
+    var preds = cnb.predict(X)
+    for i in range(7):
+        assert_equal(preds[i], Int(y[i]))
+
+
+def test_complement_nb_norm_option() raises:
+    var X = Matrix[DType.float64](4, 4, 0)
+    X[0, 0] = 2.0
+    X[0, 1] = 0.0
+    X[0, 2] = 1.0
+    X[0, 3] = 0.0
+    X[1, 0] = 0.0
+    X[1, 1] = 3.0
+    X[1, 2] = 0.0
+    X[1, 3] = 1.0
+    X[2, 0] = 1.0
+    X[2, 1] = 1.0
+    X[2, 2] = 1.0
+    X[2, 3] = 0.0
+    X[3, 0] = 0.0
+    X[3, 1] = 0.0
+    X[3, 2] = 2.0
+    X[3, 3] = 3.0
+
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var cnb_norm = ComplementNB[DType.float64](alpha=1.0, norm=True)
+    cnb_norm.fit(X, y)
+
+    var preds = cnb_norm.predict(X)
+    for i in range(4):
+        assert_equal(preds[i], Int(y[i]))
+
+
+def test_complement_nb_sparse_csr() raises:
+    var indptr = List[Int]()
+    indptr.append(0)
+    indptr.append(2)
+    indptr.append(4)
+    indptr.append(7)
+    indptr.append(9)
+    var indices = List[Int]()
+    indices.append(0)
+    indices.append(2)
+    indices.append(1)
+    indices.append(3)
+    indices.append(0)
+    indices.append(1)
+    indices.append(2)
+    indices.append(2)
+    indices.append(3)
+    var data = List[Scalar[DType.float64]]()
+    data.append(2.0)
+    data.append(1.0)
+    data.append(3.0)
+    data.append(1.0)
+    data.append(1.0)
+    data.append(1.0)
+    data.append(1.0)
+    data.append(2.0)
+    data.append(3.0)
+
+    var csr = CSRMatrix[DType.float64](4, 4, data^, indices^, indptr^)
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var cnb = ComplementNB[DType.float64](alpha=1.0)
+    cnb.fit(csr, y)
+
+    var preds = cnb.predict(csr)
+    assert_equal(preds[0], 0)
+    assert_equal(preds[1], 1)
+    assert_equal(preds[2], 0)
+    assert_equal(preds[3], 1)
+
+
+def test_complement_nb_negative_values_rejection() raises:
+    var X = Matrix[DType.float64](2, 2, 0)
+    X[0, 0] = -1.0
+    X[0, 1] = 2.0
+    X[1, 0] = 1.0
+    X[1, 1] = 0.0
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+
+    var cnb = ComplementNB[DType.float64]()
+    with assert_raises():
+        cnb.fit(X, y)
+
+
+def test_complement_nb_serialization() raises:
+    var X = Matrix[DType.float64](4, 3, 0)
+    X[0, 0] = 2.0
+    X[0, 1] = 0.0
+    X[0, 2] = 1.0
+    X[1, 0] = 0.0
+    X[1, 1] = 3.0
+    X[1, 2] = 0.0
+    X[2, 0] = 1.0
+    X[2, 1] = 0.0
+    X[2, 2] = 2.0
+    X[3, 0] = 0.0
+    X[3, 1] = 2.0
+    X[3, 2] = 1.0
+
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var cnb = ComplementNB[DType.float64](alpha=0.5, norm=False)
+    cnb.fit(X, y)
+
+    var bytes = dumps(cnb)
+    var restored = loads[ComplementNB[DType.float64]](bytes)
+
+    assert_true(restored.is_fitted)
+    assert_equal(restored.n_features_in_, cnb.n_features_in_)
+    assert_almost_equal(restored.alpha, cnb.alpha)
+
+    var p1 = cnb.predict(X)
+    var p2 = restored.predict(X)
+    for i in range(4):
+        assert_equal(p1[i], p2[i])
+
+
+def test_complement_nb_copy_semantics() raises:
+    var X = Matrix[DType.float64](4, 2, 0)
+    X[0, 0] = 2.0
+    X[0, 1] = 0.0
+    X[1, 0] = 0.0
+    X[1, 1] = 3.0
+    X[2, 0] = 1.0
+    X[2, 1] = 0.0
+    X[3, 0] = 0.0
+    X[3, 1] = 1.0
+    var y = List[Scalar[DType.int32]]()
+    y.append(0)
+    y.append(1)
+    y.append(0)
+    y.append(1)
+
+    var cnb1 = ComplementNB[DType.float64](alpha=1.0)
+    cnb1.fit(X, y)
+
+    var cnb2 = cnb1.copy()
+    assert_true(cnb2.is_fitted)
+    assert_equal(cnb2.n_features_in_, 2)
+
+    var y2 = List[Scalar[DType.int32]]()
+    y2.append(1)
+    y2.append(0)
+    y2.append(1)
+    y2.append(0)
+    cnb2.fit(X, y2)
+
+    assert_equal(cnb1.predict(X)[0], 0)
+    assert_equal(cnb2.predict(X)[0], 1)
+
+
+def test_complement_nb_error_handling() raises:
+    with assert_raises():
+        _ = ComplementNB[DType.float64](alpha=-0.5)
+
+    var cnb = ComplementNB[DType.float64]()
+    var X = Matrix[DType.float64](2, 2, 0)
+    with assert_raises():
+        _ = cnb.predict(X)
+
+    var y_single_class = List[Scalar[DType.int32]]()
+    y_single_class.append(0)
+    y_single_class.append(0)
+    with assert_raises():
+        cnb.fit(X, y_single_class)
 
 
 def main() raises:

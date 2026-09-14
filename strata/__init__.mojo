@@ -108,7 +108,8 @@ from .linear_model import (
     SGDClassifier,
 )
 from .decomposition import PCA, TruncatedSVD
-from .cluster import KMeans, MiniBatchKMeans
+from .cluster import KMeans, MiniBatchKMeans, DBSCAN
+from .svm import LinearSVC, LinearSVR
 from .metrics import (
     mean_squared_error,
     root_mean_squared_error,
@@ -144,7 +145,12 @@ from .neighbors import (
     KDTree,
 )
 from .compose import ColumnTransformer
-from .naive_bayes import GaussianNB, MultinomialNB
+from .naive_bayes import (
+    GaussianNB,
+    MultinomialNB,
+    BernoulliNB,
+    ComplementNB,
+)
 from .io import (
     BufferWriter,
     BufferReader,

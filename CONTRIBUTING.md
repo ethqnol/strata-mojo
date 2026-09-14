@@ -197,11 +197,12 @@ Current implementation status and planned roadmap items:
 * **Core & Linear Algebra**: `Matrix[DType]`, `MatrixView`, `CSRMatrix`, `CSCMatrix`, LAPACK bindings (SVD, QR, Cholesky, Solve, Eigh, LU), SIMD kernels.
 * **Composition**: `Pipeline`, `ColumnTransformer`, zero-copy binary serialization (`strata.io`).
 * **Linear Models**: `LinearRegression` (analytical OLS), `Ridge`, `Lasso` (coordinate descent), `ElasticNet`, `LogisticRegression`, `SGDClassifier`, `SGDRegressor`.
+* **Support Vector Machines**: `LinearSVC` (L1/L2 hinge loss classification via Dual Coordinate Descent), `LinearSVR` (epsilon-insensitive loss regression with active set shrinking).
 * **Trees & Ensembles**: `DecisionTreeClassifier`, `DecisionTreeRegressor`, `RandomForestClassifier`, `RandomForestRegressor`, `HistGradientBoostingClassifier`, `HistGradientBoostingRegressor`.
-* **Neighbors & Clustering**: `NearestNeighbors`, `KDTree` (k-NN and radius queries), `KNeighborsClassifier`, `KNeighborsRegressor`, `KMeans`, `MiniBatchKMeans`.
+* **Neighbors & Clustering**: `NearestNeighbors`, `KDTree` (k-NN and radius queries), `KNeighborsClassifier`, `KNeighborsRegressor`, `KMeans`, `MiniBatchKMeans`, `DBSCAN` (spatial density clustering with noise detection).
 * **Dimensionality Reduction**: `PCA`, `TruncatedSVD` (dense and sparse).
 * **Preprocessing**: `StandardScaler`, `MinMaxScaler`, `RobustScaler`, `Normalizer`, `OneHotEncoder`, `OrdinalEncoder`, `LabelEncoder`, `SimpleImputer`, `Binarizer`, `PolynomialFeatures`.
-* **Naive Bayes**: `GaussianNB` (continuous features with adaptive variance smoothing), `MultinomialNB` (discrete count modeling with dense and sparse `CSRMatrix` acceleration).
+* **Naive Bayes**: `GaussianNB` (continuous features with adaptive variance smoothing), `MultinomialNB` (discrete counts with dense and sparse `CSRMatrix` acceleration), `BernoulliNB` (multivariate binary models with binarization), `ComplementNB` (imbalanced text classification).
 * **Model Selection & Metrics**: `train_test_split`, `KFold`, `StratifiedKFold`, `TimeSeriesSplit`, `ShuffleSplit`, `StratifiedShuffleSplit`, `GridSearchCV`, `RandomizedSearchCV`, `cross_val_score`, `cross_val_predict`, regression/classification/clustering metrics.
 
 ### Next Priorities
@@ -210,16 +211,17 @@ Current implementation status and planned roadmap items:
    - Parallel fold evaluation in `GridSearchCV` / `cross_val_score`.
    - Threaded batch distance calculations in `NearestNeighbors`.
 2. **Clustering & Spatial**:
-   - `DBSCAN` (leveraging existing `KDTree.query_radius`).
+   - `HDBSCAN` (hierarchical density-based clustering).
+   - `OPTICS` (ordering points to identify clustering structure).
    - `KModes` (categorical clustering).
-3. **Support Vector Machines**:
-   - `LinearSVC` and `LinearSVR` (coordinate descent / LIBLINEAR style).
-   - Kernel `SVC` / `SVR` with RBF / polynomial kernels.
+3. **Kernel Support Vector Machines**:
+   - Non-linear `SVC` / `SVR` with RBF, polynomial, and sigmoid kernels via SMO algorithm.
 4. **Probabilistic Models**:
-   - `BernoulliNB`, `CategoricalNB`.
-   - `GaussianMixture` (EM algorithm).
+   - `CategoricalNB` (discrete categorical features).
+   - `GaussianMixture` (EM algorithm with spherical, diag, full covariance).
 5. **Meta-Estimators**:
    - `VotingClassifier`, `VotingRegressor`, `StackingClassifier`, `StackingRegressor`.
+   - `BaggingClassifier`, `BaggingRegressor`.
 6. **Ecosystem & Interop**:
    - Python bindings for direct drop-in use in Python workflows.
    - ONNX export for tree and linear models.

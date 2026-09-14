@@ -50,21 +50,21 @@ struct BenchResult(Copyable, Movable):
         self.iterations = iterations
 
     def to_json(self) -> String:
-        var res = String("{\"benchmark\":\"") + self.benchmark + "\""
-        res += ",\"phase\":\"" + self.phase + "\""
-        res += ",\"samples\":" + String(self.samples)
-        res += ",\"features\":" + String(self.features)
-        res += ",\"median_ms\":" + String(self.median_ms)
-        res += ",\"mean_ms\":" + String(self.mean_ms)
-        res += ",\"min_ms\":" + String(self.min_ms)
-        res += ",\"max_ms\":" + String(self.max_ms)
-        res += ",\"std_ms\":" + String(self.std_ms)
-        res += ",\"throughput_samples_per_sec\":" + String(
+        var res = String('{"benchmark":"') + self.benchmark + '"'
+        res += ',"phase":"' + self.phase + '"'
+        res += ',"samples":' + String(self.samples)
+        res += ',"features":' + String(self.features)
+        res += ',"median_ms":' + String(self.median_ms)
+        res += ',"mean_ms":' + String(self.mean_ms)
+        res += ',"min_ms":' + String(self.min_ms)
+        res += ',"max_ms":' + String(self.max_ms)
+        res += ',"std_ms":' + String(self.std_ms)
+        res += ',"throughput_samples_per_sec":' + String(
             self.throughput_samples_per_sec
         )
-        res += ",\"metric_name\":\"" + self.metric_name + "\""
-        res += ",\"metric_val\":" + String(self.metric_val)
-        res += ",\"iterations\":" + String(self.iterations) + "}"
+        res += ',"metric_name":"' + self.metric_name + '"'
+        res += ',"metric_val":' + String(self.metric_val)
+        res += ',"iterations":' + String(self.iterations) + "}"
         return res
 
 
@@ -167,7 +167,8 @@ struct BenchTimer(Copyable, Movable):
 def make_synthetic_regression(
     n_samples: Int, n_features: Int, seed: Int = 42
 ) -> Tuple[Matrix[DType.float64], List[Scalar[DType.float64]]]:
-    """Generates synthetic multi-feature linear regression dataset deterministically."""
+    """Generates synthetic multi-feature linear regression dataset deterministically.
+    """
     var rng = PRNG(seed)
     var X = Matrix[DType.float64](n_samples, n_features, 0.0)
     var weights = List[Float64](capacity=n_features)
@@ -192,7 +193,8 @@ def make_synthetic_regression(
 def make_synthetic_classification(
     n_samples: Int, n_features: Int, n_classes: Int = 2, seed: Int = 42
 ) -> Tuple[Matrix[DType.float64], List[Scalar[DType.int32]]]:
-    """Generates synthetic classification dataset with separable clustered features."""
+    """Generates synthetic classification dataset with separable clustered features.
+    """
     var rng = PRNG(seed)
     var X = Matrix[DType.float64](n_samples, n_features, 0.0)
     var y = List[Scalar[DType.int32]](capacity=n_samples)
@@ -201,9 +203,9 @@ def make_synthetic_classification(
     var centroids = Matrix[DType.float64](n_classes, n_features, 0.0)
     for c in range(n_classes):
         for j in range(n_features):
-            centroids[c, j] = Float64(c * 3) + Float64(
-                rng.next_int(200) - 100
-            ) / 100.0
+            centroids[c, j] = (
+                Float64(c * 3) + Float64(rng.next_int(200) - 100) / 100.0
+            )
 
     for i in range(n_samples):
         var c = i % n_classes
@@ -225,9 +227,9 @@ def make_synthetic_blobs(
     var centers = Matrix[DType.float64](n_clusters, n_features, 0.0)
     for k in range(n_clusters):
         for j in range(n_features):
-            centers[k, j] = Float64(k * 5) + Float64(
-                rng.next_int(200) - 100
-            ) / 50.0
+            centers[k, j] = (
+                Float64(k * 5) + Float64(rng.next_int(200) - 100) / 50.0
+            )
 
     for i in range(n_samples):
         var k = i % n_clusters
@@ -258,3 +260,22 @@ def make_synthetic_sparse(
         indptr.append(len(data))
 
     return CSRMatrix[DType.float64](rows, cols, data^, indices^, indptr^)
+
+
+def make_synthetic_counts(
+    n_samples: Int, n_features: Int, n_classes: Int = 2, seed: Int = 42
+) -> Tuple[Matrix[DType.float64], List[Scalar[DType.int32]]]:
+    """Generates synthetic discrete count dataset for Naive Bayes benchmarks."""
+    var rng = PRNG(seed)
+    var X = Matrix[DType.float64](n_samples, n_features, 0.0)
+    var y = List[Scalar[DType.int32]](capacity=n_samples)
+
+    for i in range(n_samples):
+        var c = i % n_classes
+        y.append(Int32(c))
+        for j in range(n_features):
+            var base_rate = 5 if (j % n_classes) == c else 1
+            var count_val = Float64(rng.next_int(base_rate * 3 + 1))
+            X[i, j] = count_val
+
+    return (X^, y^)

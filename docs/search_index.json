@@ -261,6 +261,24 @@
     "file": "strata/linear_model/sgd_classifier.mojo"
   },
   {
+    "module": "svm",
+    "name": "LinearSVC",
+    "kind": "struct",
+    "summary": "Linear Support Vector Classification.",
+    "ref_file": "reference/svm/LinearSVC",
+    "traits": "Classifier, Copyable, Movable, Serializable",
+    "file": "strata/svm/linear_svc.mojo"
+  },
+  {
+    "module": "svm",
+    "name": "LinearSVR",
+    "kind": "struct",
+    "summary": "Linear Support Vector Regression.",
+    "ref_file": "reference/svm/LinearSVR",
+    "traits": "Copyable, Movable, Regressor, Serializable",
+    "file": "strata/svm/linear_svr.mojo"
+  },
+  {
     "module": "tree",
     "name": "DecisionTreeClassifier",
     "kind": "struct",
@@ -333,6 +351,24 @@
     "file": "strata/naive_bayes/multinomial.mojo"
   },
   {
+    "module": "naive_bayes",
+    "name": "BernoulliNB",
+    "kind": "struct",
+    "summary": "Bernoulli Naive Bayes classifier for multivariate Bernoulli models.",
+    "ref_file": "reference/naive_bayes/BernoulliNB",
+    "traits": "Classifier, Copyable, Movable, Serializable",
+    "file": "strata/naive_bayes/bernoulli.mojo"
+  },
+  {
+    "module": "naive_bayes",
+    "name": "ComplementNB",
+    "kind": "struct",
+    "summary": "Complement Naive Bayes classifier (Rennie et al., 2003).",
+    "ref_file": "reference/naive_bayes/ComplementNB",
+    "traits": "Classifier, Copyable, Movable, Serializable",
+    "file": "strata/naive_bayes/complement.mojo"
+  },
+  {
     "module": "compose",
     "name": "ColumnTransformer",
     "kind": "struct",
@@ -358,6 +394,15 @@
     "ref_file": "reference/cluster/MiniBatchKMeans",
     "traits": "Clusterer, Copyable, Movable",
     "file": "strata/cluster/minibatch_kmeans.mojo"
+  },
+  {
+    "module": "cluster",
+    "name": "DBSCAN",
+    "kind": "struct",
+    "summary": "Density-Based Spatial Clustering of Applications with Noise (DBSCAN).",
+    "ref_file": "reference/cluster/DBSCAN",
+    "traits": "Clusterer, Copyable, Movable",
+    "file": "strata/cluster/dbscan.mojo"
   },
   {
     "module": "decomposition",

@@ -31,7 +31,7 @@ channels = [
 ]
 
 [dependencies]
-strata = ">=0.1.0"
+strata = ">=0.2.0"
 mojo = ">=1.0.0"
 
 # Task shortcut to automatically link LAPACK & BLAS shared libraries
@@ -58,24 +58,27 @@ Strata combines Mojo's compile-time metaprogramming and hardware SIMD vectorizat
 
 | Domain | Estimator / Routine | Phase | Strata Median | Scikit-Learn Median | Speedup | Quality / Parity |
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Preprocessing** | `PolynomialFeatures` | `fit` | **82.4 µs** | 602.4 µs | **7.31x faster** | Exact Match |
-| | `MinMaxScaler` | `fit` | **151.7 µs** | 796.7 µs | **5.25x faster** | Exact Match |
-| | `StandardScaler` | `fit` | **254.6 µs** | 1.16 ms | **4.56x faster** | Exact Match |
-| | `RobustScaler` | `transform` | **129.5 µs** | 506.2 µs | **3.91x faster** | Exact Match |
-| **Nearest Neighbors**| `NearestNeighbors` | `fit` | **120.9 µs** | 516.7 µs | **4.27x faster** | Exact Match |
-| | `KNeighborsClassifier` | `predict` | **4.34 ms** | 6.75 ms | **1.55x faster** | Exact Parity (`1.0000`) |
-| | `KNeighborsRegressor` | `predict` | **4.31 ms** | 5.95 ms | **1.38x faster** | Exact Parity ($R^2 = 0.92$) |
-| | `NearestNeighbors` | `kneighbors` | **4.21 ms** | 5.58 ms | **1.33x faster** | Exact Match |
-| **Clustering** | `KMeans` | `fit` | **778.8 µs** | 2.49 ms | **3.19x faster** | Exact Inertia Match |
-| | `MiniBatchKMeans` | `predict` | **135.4 µs** | 279.8 µs | **2.07x faster** | Exact Inertia Match |
-| | `TruncatedSVD_CSR` | `fit` | **1.31 ms** | 3.15 ms | **2.41x faster** | Exact Match |
-| **Trees & Ensembles**| `DecisionTreeClassifier` | `predict` | **53.9 µs** | 296.6 µs | **5.50x faster** | Exact Parity (`1.0000`) |
-| | `DecisionTreeRegressor` | `predict` | **219.9 µs** | 1.01 ms | **4.60x faster** | Exact Parity ($R^2 = 0.98$) |
-| | `DecisionTreeClassifier` | `fit` | **2.11 ms** | 4.75 ms | **2.25x faster** | Exact Parity (`1.0000`) |
-| | `RandomForestRegressor` | `fit` | **113.26 ms** | 230.05 ms | **2.03x faster** | Exact Parity ($R^2 = 0.97$) |
-| | `HistGradientBoostingRegressor` | `predict` | **2.81 ms** | 5.53 ms | **1.96x faster** | Exact Parity ($R^2 = 0.95$) |
-| **Linear Algebra** | `Dense_Dot_Vec` | `matvec` | **81.9 µs** | 113.1 µs | **1.38x faster** | Exact Match |
-| | `Dense_GEMM` | `matmul` | **1.37 ms** | 1.41 ms | **≈ parity (1.03x)**| Exact Match |
+| **Trees & Ensembles**| `RandomForestRegressor` | `fit` | **616.03 ms** | 1.83 s | **2.97x faster** | Exact Parity ($R^2 = 0.91$) |
+| | `HistGradientBoostingRegressor` | `predict` | **10.05 ms** | 23.92 ms | **2.38x faster** | Exact Parity ($R^2 = 0.81$) |
+| | `DecisionTreeRegressor` | `predict` | **1.18 ms** | 1.88 ms | **1.58x faster** | Exact Parity ($R^2 = 0.89$) |
+| | `DecisionTreeClassifier` | `predict` | **341.7 µs** | 507.9 µs | **1.49x faster** | Exact Parity (`1.0000`) |
+| | `DecisionTreeClassifier` | `fit` | **17.98 ms** | 21.58 ms | **1.20x faster** | Exact Parity (`1.0000`) |
+| **Clustering** | `DBSCAN` | `predict` | **30.04 ms** | 83.34 ms | **2.77x faster** | Exact Match |
+| | `TruncatedSVD_CSR` | `fit` | **8.21 ms** | 16.22 ms | **1.98x faster** | Exact Match |
+| | `KMeans` | `fit` | **7.26 ms** | 7.14 ms | **≈ parity (1.02x)**| Exact Match |
+| **Naive Bayes** | `BernoulliNB` | `fit` | **6.55 ms** | 12.35 ms | **1.88x faster** | Exact Parity (`0.9944`) |
+| | `MultinomialNB_CSR` | `fit` | **2.30 ms** | 3.65 ms | **1.58x faster** | Exact Parity (`0.3520`) |
+| | `BernoulliNB` | `predict` | **6.85 ms** | 9.77 ms | **1.42x faster** | Exact Parity (`0.9944`) |
+| **Linear Models** | `LinearRegression` | `fit` | **3.76 ms** | 5.02 ms | **1.34x faster** | Exact Parity ($R^2 = 1.0000$) |
+| **Nearest Neighbors**| `KNeighborsClassifier` | `fit` | **616.6 µs** | 850.4 µs | **1.38x faster** | Exact Parity (`1.0000`) |
+| | `KNeighborsClassifier` | `predict` | **11.53 ms** | 14.33 ms | **1.24x faster** | Exact Parity (`1.0000`) |
+| | `NearestNeighbors` | `kneighbors` | **11.36 ms** | 13.67 ms | **1.20x faster** | Exact Match |
+| **Preprocessing** | `PolynomialFeatures` | `fit` | **769.4 µs** | 1.00 ms | **1.31x faster** | Exact Match |
+| | `StandardScaler` | `transform` | **4.14 ms** | 4.98 ms | **1.20x faster** | Exact Match |
+| | `RobustScaler` | `transform` | **4.46 ms** | 5.00 ms | **1.12x faster** | Exact Match |
+| | `MinMaxScaler` | `transform` | **4.16 ms** | 4.57 ms | **1.10x faster** | Exact Match |
+| **Linear Algebra** | `Dense_Dot_Vec` | `matvec` | **723.0 µs** | 1.02 ms | **1.41x faster** | Exact Match |
+| | `Dense_GEMM` | `matmul` | **10.30 ms** | 10.36 ms | **≈ parity (1.01x)**| Exact Match |
 
 *For complete reproducible benchmark methodology, charts, and large-scale runs, see [BENCHMARK_REPORT.md](./benchmarks/results/BENCHMARK_REPORT.md).*
 
@@ -145,23 +148,68 @@ def main() raises:
     var preds = pipe.predict(X)
 ```
 
-### Clustering
+### Clustering (KMeans & DBSCAN)
 
 ```mojo
-from strata import Matrix, KMeans, MiniBatchKMeans
+from strata import Matrix, KMeans, MiniBatchKMeans, DBSCAN
 
 def main() raises:
-    var X = Matrix[DType.float64](6, 2, 0)
-    # Cluster samples into K groups using Lloyd's algorithm
-    var kmeans = KMeans(n_clusters=2, init="k-means++", random_state=42)
+    var X = Matrix[DType.float64](100, 2, 0)
+
+    # 1. Geometric K-Means with k-means++ initialization
+    var kmeans = KMeans(n_clusters=3, init="k-means++", random_state=42)
     kmeans.fit(X)
+    var km_labels = kmeans.predict(X)
 
-    var labels = kmeans.predict(X)
-    var dists = kmeans.transform(X)
+    # 2. Density-Based Spatial Clustering of Applications with Noise (DBSCAN)
+    var dbscan = DBSCAN(eps=0.5, min_samples=5, metric="euclidean")
+    var db_labels = dbscan.fit_predict(X)
+    print("Discovered clusters:", dbscan.n_clusters_)
+    print("Core samples found:", len(dbscan.core_sample_indices_))
 
-    # Online streaming mini-batch clustering
-    var mbk = MiniBatchKMeans(n_clusters=2, batch_size=32, random_state=42)
+    # 3. Online streaming mini-batch clustering
+    var mbk = MiniBatchKMeans(n_clusters=3, batch_size=32, random_state=42)
     mbk.partial_fit(X)
+```
+
+### Support Vector Machines (LinearSVC & LinearSVR)
+
+```mojo
+from strata import Matrix, LinearSVC, LinearSVR
+
+def main() raises:
+    # Linear Support Vector Classification via LIBLINEAR Dual Coordinate Descent
+    var svc = LinearSVC(C=1.0, loss="squared_hinge", random_state=42)
+    svc.fit(X_train, y_train)
+    var svc_preds = svc.predict(X_test)
+    var margins = svc.decision_function(X_test)
+
+    # Linear Support Vector Regression with active-set shrinking
+    var svr = LinearSVR(C=1.0, epsilon=0.1, random_state=42)
+    svr.fit(X_train, y_reg)
+    var svr_preds = svr.predict(X_test)
+```
+
+### Naive Bayes (MultinomialNB, BernoulliNB, ComplementNB)
+
+```mojo
+from strata import Matrix, CSRMatrix, MultinomialNB, BernoulliNB, ComplementNB
+
+def main() raises:
+    # Text count classification (supports dense Matrix and sparse CSRMatrix)
+    var mnb = MultinomialNB(alpha=1.0)
+    mnb.fit(X_counts, y_train)
+    var mnb_probs = mnb.predict_proba(X_counts)
+
+    # Multivariate binary features with binarization threshold
+    var bnb = BernoulliNB(alpha=1.0, binarize=0.0)
+    bnb.fit(X_binary, y_train)
+    var bnb_preds = bnb.predict(X_binary)
+
+    # Imbalanced text classification via complement statistics
+    var cnb = ComplementNB(alpha=1.0, norm=True)
+    cnb.fit(X_counts, y_train)
+    var cnb_preds = cnb.predict(X_counts)
 ```
 
 ### Model Persistence & Serialization
@@ -193,13 +241,15 @@ def main() raises:
   - `dataset`: `Dataset` container for features, targets, and metadata.
   - `interop`: NumPy and SciPy sparse conversions.
 - **`strata.linear_model`**: `LinearRegression`, `Ridge`, `Lasso` (coordinate descent), `ElasticNet`, `LogisticRegression` (binary and multinomial), `SGDRegressor`, `SGDClassifier`.
+- **`strata.svm`**: `LinearSVC` (L1/L2 hinge loss classification via Dual Coordinate Descent), `LinearSVR` (epsilon-insensitive loss regression with active set shrinking).
+- **`strata.naive_bayes`**: `GaussianNB` (adaptive variance smoothing), `MultinomialNB` (discrete counts with dense/sparse CSR acceleration), `BernoulliNB` (multivariate binary models with binarization), `ComplementNB` (imbalanced text classification).
 - **`strata.tree`**: `DecisionTreeClassifier`, `DecisionTreeRegressor` (with Gini, Entropy, MSE, MAE criteria).
 - **`strata.ensemble`**: `RandomForestClassifier`, `RandomForestRegressor` (with OOB evaluation and soft voting), `HistGradientBoostingClassifier`, `HistGradientBoostingRegressor` (with UInt8 binning, histogram subtraction, and early stopping).
 - **`strata.compose`**: `ColumnTransformer` (heterogeneous feature transformers applied to designated subsets of columns with configurable remainder routing).
 - **`strata.io`**: `BufferWriter`, `BufferReader`, `Serializable`, `dump`, `load`, `dumps`, `loads` (zero-copy, endian-safe binary model persistence).
 - **`strata.neighbors`**: `NearestNeighbors`, `KNeighborsClassifier`, `KNeighborsRegressor`, `KDTree`, and distance metrics (`euclidean`, `manhattan`, `chebyshev`, `minkowski`, `cosine`, `pairwise_distances`).
 - **`strata.decomposition`**: `PCA` (with whitening and sign-flip), `TruncatedSVD` (dense and sparse CSR via SpMM).
-- **`strata.cluster`**: `KMeans` (k-means++, Lloyd's algorithm, distance-space transforms), `MiniBatchKMeans` (streaming online updates, EWMA inertia smoothing, `partial_fit`).
+- **`strata.cluster`**: `KMeans` (k-means++, Lloyd's algorithm, distance-space transforms), `MiniBatchKMeans` (streaming online updates, EWMA inertia smoothing, `partial_fit`), `DBSCAN` (spatial density clustering, core sample indexing, non-parametric noise rejection).
 - **`strata.preprocessing`**: `StandardScaler`, `MinMaxScaler`, `RobustScaler`, `Normalizer`, `OneHotEncoder`, `OrdinalEncoder`, `LabelEncoder`, `SimpleImputer`, `Binarizer`, `PolynomialFeatures`.
 - **`strata.model_selection`**: `train_test_split`, `KFold`, `StratifiedKFold`, `TimeSeriesSplit`, `ShuffleSplit`, `StratifiedShuffleSplit`, `cross_val_score`, `cross_val_predict`, `cross_validate`, `GridSearchRegressor`, `GridSearchClassifier`, `RandomizedSearchRegressor`, `RandomizedSearchClassifier`.
 - **`strata.metrics`**:

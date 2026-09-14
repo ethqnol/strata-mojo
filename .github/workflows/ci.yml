@@ -2,13 +2,16 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, "v*", "release/**"]
   pull_request:
-    branches: [main]
+    branches: [main, "v*", "release/**"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   format-check:
@@ -41,10 +44,9 @@ jobs:
       - name: Precompile Strata Package
         run: pixi run build
 
-  test:
-    name: Full Unit Test Suite (620+ tests)
+  docs-check:
+    name: Documentation & Sitemap Check
     runs-on: ubuntu-latest
-    needs: [build]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -54,5 +56,20 @@ jobs:
         with:
           cache: true
 
-      - name: Run Test Suite
-        run: pixi run test-all
+      - name: Build Documentation
+        run: pixi run build-docs
+
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pixi Environment
+        uses: prefix-dev/setup-pixi@v0.8.3
+        with:
+          cache: true
+
+      - name: Run Full Test Suite
+        run: pixi run test-runner

@@ -1,6 +1,6 @@
 # `KNeighborsRegressor`
 
-**Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor`
+**Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor`  
 **Source**: [`strata/neighbors/regression.mojo`](file:////home/ewu/Code/Strata/strata/neighbors/regression.mojo)
 
 ```mojo
