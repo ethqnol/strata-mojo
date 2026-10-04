@@ -1,7 +1,7 @@
 # `PipelineClassifier`
 
 **Module**: [`strata.base`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable`  
-**Source**: [`strata/base/pipeline.mojo`](file:////home/ewu/Code/Strata/strata/base/pipeline.mojo)
+**Source**: [`strata/base/pipeline.mojo`](file:////home/ewu/Code/strata-mojo/strata/base/pipeline.mojo)
 
 ```mojo
 struct PipelineClassifier[T: Transformer, C: Classifier, target_dtype: DType = DType.int32](Classifier, Copyable, Movable)

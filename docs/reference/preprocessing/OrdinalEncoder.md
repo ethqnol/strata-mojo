@@ -1,7 +1,7 @@
 # `OrdinalEncoder`
 
 **Module**: [`strata.preprocessing`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Transformer`  
-**Source**: [`strata/preprocessing/encoders.mojo`](file:////home/ewu/Code/Strata/strata/preprocessing/encoders.mojo)
+**Source**: [`strata/preprocessing/encoders.mojo`](file:////home/ewu/Code/strata-mojo/strata/preprocessing/encoders.mojo)
 
 ```mojo
 struct OrdinalEncoder[compute_dtype: DType = DType.float64](Copyable, Movable, Transformer)

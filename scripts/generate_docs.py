@@ -66,10 +66,11 @@ MODULE_METADATA = {
     },
     "svm": {
         "title": "Support Vector Machines",
-        "description": "Linear Support Vector Classification (LinearSVC) and Regression (LinearSVR) using Dual Coordinate Descent (LIBLINEAR) with hinge and epsilon-insensitive losses.",
+        "description": "Linear and kernel Support Vector Classification (LinearSVC) and Regression (LinearSVR) with dual coordinate descent, Sequential Minimal Optimization (SMO), and kernel evaluation routines (Linear, RBF, Polynomial, Sigmoid).",
         "files": [
             "svm/linear_svc.mojo",
             "svm/linear_svr.mojo",
+            "svm/svc.mojo",
         ]
     },
     "tree": {

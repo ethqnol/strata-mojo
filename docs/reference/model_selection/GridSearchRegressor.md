@@ -1,7 +1,7 @@
 # `GridSearchRegressor`
 
 **Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor`  
-**Source**: [`strata/model_selection/grid_search.mojo`](file:////home/ewu/Code/Strata/strata/model_selection/grid_search.mojo)
+**Source**: [`strata/model_selection/grid_search.mojo`](file:////home/ewu/Code/strata-mojo/strata/model_selection/grid_search.mojo)
 
 ```mojo
 struct GridSearchRegressor[ModelType: Regressor, feat_dtype: DType = DType.float64, target_dtype: DType = DType.float64](Copyable, Movable, Regressor)

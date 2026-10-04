@@ -1,7 +1,7 @@
 # `Normalizer`
 
 **Module**: [`strata.preprocessing`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Transformer`  
-**Source**: [`strata/preprocessing/normalizer.mojo`](file:////home/ewu/Code/Strata/strata/preprocessing/normalizer.mojo)
+**Source**: [`strata/preprocessing/normalizer.mojo`](file:////home/ewu/Code/strata-mojo/strata/preprocessing/normalizer.mojo)
 
 ```mojo
 struct Normalizer[compute_dtype: DType = DType.float64](Copyable, Movable, Transformer)

@@ -279,6 +279,15 @@
     "file": "strata/svm/linear_svr.mojo"
   },
   {
+    "module": "svm",
+    "name": "SVC",
+    "kind": "struct",
+    "summary": "C-Support Vector Classification using non-linear kernels and SMO.",
+    "ref_file": "reference/svm/SVC",
+    "traits": "Classifier, Copyable, Movable, Serializable",
+    "file": "strata/svm/svc.mojo"
+  },
+  {
     "module": "tree",
     "name": "DecisionTreeClassifier",
     "kind": "struct",

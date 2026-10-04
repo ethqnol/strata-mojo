@@ -1,7 +1,7 @@
 # `CrossValidateResult`
 
 **Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Movable`  
-**Source**: [`strata/model_selection/validation.mojo`](file:////home/ewu/Code/Strata/strata/model_selection/validation.mojo)
+**Source**: [`strata/model_selection/validation.mojo`](file:////home/ewu/Code/strata-mojo/strata/model_selection/validation.mojo)
 
 ```mojo
 struct CrossValidateResult(Movable)

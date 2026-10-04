@@ -1,7 +1,7 @@
 # `KMeans`
 
 **Module**: [`strata.cluster`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Clusterer, Copyable, Movable`  
-**Source**: [`strata/cluster/kmeans.mojo`](file:////home/ewu/Code/Strata/strata/cluster/kmeans.mojo)
+**Source**: [`strata/cluster/kmeans.mojo`](file:////home/ewu/Code/strata-mojo/strata/cluster/kmeans.mojo)
 
 ```mojo
 struct KMeans[compute_dtype: DType = DType.float64](Clusterer, Copyable, Movable)

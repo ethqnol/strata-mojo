@@ -1,7 +1,7 @@
 # `Matrix`
 
 **Module**: [`strata.core`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `ArrayLike, Copyable, Movable, Writable`  
-**Source**: [`strata/core/matrix.mojo`](file:////home/ewu/Code/Strata/strata/core/matrix.mojo)
+**Source**: [`strata/core/matrix.mojo`](file:////home/ewu/Code/strata-mojo/strata/core/matrix.mojo)
 
 ```mojo
 struct Matrix[dtype: DType = DType.float64](ArrayLike, Copyable, Movable, Writable)

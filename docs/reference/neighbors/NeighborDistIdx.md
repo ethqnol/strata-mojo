@@ -1,7 +1,7 @@
 # `NeighborDistIdx`
 
 **Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Comparable, Copyable, ImplicitlyCopyable, Movable`  
-**Source**: [`strata/neighbors/base.mojo`](file:////home/ewu/Code/Strata/strata/neighbors/base.mojo)
+**Source**: [`strata/neighbors/base.mojo`](file:////home/ewu/Code/strata-mojo/strata/neighbors/base.mojo)
 
 ```mojo
 struct NeighborDistIdx(Comparable, Copyable, ImplicitlyCopyable, Movable)

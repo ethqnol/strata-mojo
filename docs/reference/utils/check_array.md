@@ -1,7 +1,7 @@
 # `check_array`
 
 **Module**: [`strata.utils`](index.md) &bull; **Kind**: `function`  
-**Source**: [`strata/utils/validation.mojo`](file:////home/ewu/Code/Strata/strata/utils/validation.mojo)
+**Source**: [`strata/utils/validation.mojo`](file:////home/ewu/Code/strata-mojo/strata/utils/validation.mojo)
 
 ```mojo
 def check_array[dtype: DType](X: Matrix[dtype], allow_empty: Bool = False, force_all_finite: Bool = True)

@@ -1,7 +1,7 @@
 # `Lasso`
 
 **Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`  
-**Source**: [`strata/linear_model/lasso.mojo`](file:////home/ewu/Code/Strata/strata/linear_model/lasso.mojo)
+**Source**: [`strata/linear_model/lasso.mojo`](file:////home/ewu/Code/strata-mojo/strata/linear_model/lasso.mojo)
 
 ```mojo
 struct Lasso[compute_dtype: DType = DType.float64](Copyable, Movable, Regressor, Serializable)

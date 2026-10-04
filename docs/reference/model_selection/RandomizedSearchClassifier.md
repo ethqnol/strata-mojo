@@ -1,7 +1,7 @@
 # `RandomizedSearchClassifier`
 
 **Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable`  
-**Source**: [`strata/model_selection/randomized_search.mojo`](file:////home/ewu/Code/Strata/strata/model_selection/randomized_search.mojo)
+**Source**: [`strata/model_selection/randomized_search.mojo`](file:////home/ewu/Code/strata-mojo/strata/model_selection/randomized_search.mojo)
 
 ```mojo
 struct RandomizedSearchClassifier[ModelType: Classifier, feat_dtype: DType = DType.float64, target_dtype: DType = DType.int32](Classifier, Copyable, Movable)

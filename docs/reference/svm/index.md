@@ -1,6 +1,6 @@
 # `strata.svm`
 
-Linear Support Vector Classification (LinearSVC) and Regression (LinearSVR) using Dual Coordinate Descent (LIBLINEAR) with hinge and epsilon-insensitive losses.
+Linear and kernel Support Vector Classification (LinearSVC) and Regression (LinearSVR) with dual coordinate descent, Sequential Minimal Optimization (SMO), and kernel evaluation routines (Linear, RBF, Polynomial, Sigmoid).
 
 ---
 
@@ -10,3 +10,4 @@ Linear Support Vector Classification (LinearSVC) and Regression (LinearSVR) usin
 | :--- | :--- |
 | [`LinearSVC`](LinearSVC.md) | Linear Support Vector Classification. |
 | [`LinearSVR`](LinearSVR.md) | Linear Support Vector Regression. |
+| [`SVC`](SVC.md) | C-Support Vector Classification using non-linear kernels and SMO. |

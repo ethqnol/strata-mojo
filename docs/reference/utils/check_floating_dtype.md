@@ -1,7 +1,7 @@
 # `check_floating_dtype`
 
 **Module**: [`strata.utils`](index.md) &bull; **Kind**: `function`  
-**Source**: [`strata/utils/validation.mojo`](file:////home/ewu/Code/Strata/strata/utils/validation.mojo)
+**Source**: [`strata/utils/validation.mojo`](file:////home/ewu/Code/strata-mojo/strata/utils/validation.mojo)
 
 ```mojo
 def check_floating_dtype[dtype: DType, caller: StringLiteral = "Estimator"]()

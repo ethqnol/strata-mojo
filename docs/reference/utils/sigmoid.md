@@ -1,7 +1,7 @@
 # `sigmoid`
 
 **Module**: [`strata.utils`](index.md) &bull; **Kind**: `function`  
-**Source**: [`strata/utils/math.mojo`](file:////home/ewu/Code/Strata/strata/utils/math.mojo)
+**Source**: [`strata/utils/math.mojo`](file:////home/ewu/Code/strata-mojo/strata/utils/math.mojo)
 
 ```mojo
 def sigmoid[dtype: DType = DType.float64](x: Scalar[dtype]) -> Scalar[dtype]

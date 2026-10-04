@@ -1,7 +1,7 @@
 # `silhouette_score`
 
 **Module**: [`strata.metrics`](index.md) &bull; **Kind**: `function`  
-**Source**: [`strata/metrics/cluster.mojo`](file:////home/ewu/Code/Strata/strata/metrics/cluster.mojo)
+**Source**: [`strata/metrics/cluster.mojo`](file:////home/ewu/Code/strata-mojo/strata/metrics/cluster.mojo)
 
 ```mojo
 def silhouette_score[dtype: DType = DType.float64](X: Matrix[dtype], labels: List[Int]) -> Float64

@@ -1,7 +1,7 @@
 # `SimpleImputer`
 
 **Module**: [`strata.preprocessing`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Transformer`  
-**Source**: [`strata/preprocessing/imputer.mojo`](file:////home/ewu/Code/Strata/strata/preprocessing/imputer.mojo)
+**Source**: [`strata/preprocessing/imputer.mojo`](file:////home/ewu/Code/strata-mojo/strata/preprocessing/imputer.mojo)
 
 ```mojo
 struct SimpleImputer[compute_dtype: DType = DType.float64](Copyable, Movable, Transformer)

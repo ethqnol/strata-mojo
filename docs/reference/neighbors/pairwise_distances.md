@@ -1,7 +1,7 @@
 # `pairwise_distances`
 
 **Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `function`  
-**Source**: [`strata/neighbors/distance.mojo`](file:////home/ewu/Code/Strata/strata/neighbors/distance.mojo)
+**Source**: [`strata/neighbors/distance.mojo`](file:////home/ewu/Code/strata-mojo/strata/neighbors/distance.mojo)
 
 ```mojo
 def pairwise_distances[dtype: DType](X: Matrix[dtype], metric: String = "euclidean", p: Float64 = 2.0) -> Matrix[dtype]

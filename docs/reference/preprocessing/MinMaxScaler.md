@@ -1,7 +1,7 @@
 # `MinMaxScaler`
 
 **Module**: [`strata.preprocessing`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Serializable, Transformer`  
-**Source**: [`strata/preprocessing/scaler.mojo`](file:////home/ewu/Code/Strata/strata/preprocessing/scaler.mojo)
+**Source**: [`strata/preprocessing/scaler.mojo`](file:////home/ewu/Code/strata-mojo/strata/preprocessing/scaler.mojo)
 
 ```mojo
 struct MinMaxScaler[compute_dtype: DType = DType.float64](Copyable, Movable, Serializable, Transformer)

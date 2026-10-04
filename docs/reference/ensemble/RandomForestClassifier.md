@@ -1,7 +1,7 @@
 # `RandomForestClassifier`
 
 **Module**: [`strata.ensemble`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable, Serializable`  
-**Source**: [`strata/ensemble/forest.mojo`](file:////home/ewu/Code/Strata/strata/ensemble/forest.mojo)
+**Source**: [`strata/ensemble/forest.mojo`](file:////home/ewu/Code/strata-mojo/strata/ensemble/forest.mojo)
 
 ```mojo
 struct RandomForestClassifier[compute_dtype: DType = DType.float64](Classifier, Copyable, Movable, Serializable)

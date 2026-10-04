@@ -1,7 +1,7 @@
 # `TimeSeriesSplit`
 
 **Module**: [`strata.model_selection`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Movable`  
-**Source**: [`strata/model_selection/time_series_split.mojo`](file:////home/ewu/Code/Strata/strata/model_selection/time_series_split.mojo)
+**Source**: [`strata/model_selection/time_series_split.mojo`](file:////home/ewu/Code/strata-mojo/strata/model_selection/time_series_split.mojo)
 
 ```mojo
 struct TimeSeriesSplit(Movable)

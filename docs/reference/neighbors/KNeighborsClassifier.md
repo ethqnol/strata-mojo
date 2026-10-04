@@ -1,7 +1,7 @@
 # `KNeighborsClassifier`
 
 **Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable`  
-**Source**: [`strata/neighbors/classification.mojo`](file:////home/ewu/Code/Strata/strata/neighbors/classification.mojo)
+**Source**: [`strata/neighbors/classification.mojo`](file:////home/ewu/Code/strata-mojo/strata/neighbors/classification.mojo)
 
 ```mojo
 struct KNeighborsClassifier[compute_dtype: DType = DType.float64](Classifier, Copyable, Movable)

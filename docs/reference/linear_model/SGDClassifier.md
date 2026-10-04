@@ -1,7 +1,7 @@
 # `SGDClassifier`
 
 **Module**: [`strata.linear_model`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable`  
-**Source**: [`strata/linear_model/sgd_classifier.mojo`](file:////home/ewu/Code/Strata/strata/linear_model/sgd_classifier.mojo)
+**Source**: [`strata/linear_model/sgd_classifier.mojo`](file:////home/ewu/Code/strata-mojo/strata/linear_model/sgd_classifier.mojo)
 
 ```mojo
 struct SGDClassifier[compute_dtype: DType = DType.float64](Classifier, Copyable, Movable)

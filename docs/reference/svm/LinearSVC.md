@@ -1,7 +1,7 @@
 # `LinearSVC`
 
 **Module**: [`strata.svm`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable, Serializable`  
-**Source**: [`strata/svm/linear_svc.mojo`](file:////home/ewu/Code/Strata/strata/svm/linear_svc.mojo)
+**Source**: [`strata/svm/linear_svc.mojo`](file:////home/ewu/Code/strata-mojo/strata/svm/linear_svc.mojo)
 
 ```mojo
 struct LinearSVC[compute_dtype: DType = DType.float64](Classifier, Copyable, Movable, Serializable)

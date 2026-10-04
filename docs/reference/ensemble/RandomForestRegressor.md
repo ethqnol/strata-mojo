@@ -1,7 +1,7 @@
 # `RandomForestRegressor`
 
 **Module**: [`strata.ensemble`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`  
-**Source**: [`strata/ensemble/forest.mojo`](file:////home/ewu/Code/Strata/strata/ensemble/forest.mojo)
+**Source**: [`strata/ensemble/forest.mojo`](file:////home/ewu/Code/strata-mojo/strata/ensemble/forest.mojo)
 
 ```mojo
 struct RandomForestRegressor[compute_dtype: DType = DType.float64](Copyable, Movable, Regressor, Serializable)

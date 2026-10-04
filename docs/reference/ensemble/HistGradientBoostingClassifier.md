@@ -1,7 +1,7 @@
 # `HistGradientBoostingClassifier`
 
 **Module**: [`strata.ensemble`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable`  
-**Source**: [`strata/ensemble/hist_gradient_boosting_classifier.mojo`](file:////home/ewu/Code/Strata/strata/ensemble/hist_gradient_boosting_classifier.mojo)
+**Source**: [`strata/ensemble/hist_gradient_boosting_classifier.mojo`](file:////home/ewu/Code/strata-mojo/strata/ensemble/hist_gradient_boosting_classifier.mojo)
 
 ```mojo
 struct HistGradientBoostingClassifier[compute_dtype: DType = DType.float64](Classifier, Copyable, Movable)

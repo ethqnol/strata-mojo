@@ -1,7 +1,7 @@
 # `DimensionMismatchError`
 
 **Module**: [`strata.utils`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Writable`  
-**Source**: [`strata/exceptions/errors.mojo`](file:////home/ewu/Code/Strata/strata/exceptions/errors.mojo)
+**Source**: [`strata/exceptions/errors.mojo`](file:////home/ewu/Code/strata-mojo/strata/exceptions/errors.mojo)
 
 ```mojo
 struct DimensionMismatchError(Copyable, Movable, Writable)
