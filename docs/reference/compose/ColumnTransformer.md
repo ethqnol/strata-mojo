@@ -79,7 +79,7 @@ Fits all transformers on their respective designated column subsets.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 ---
@@ -96,7 +96,7 @@ Transforms column subsets and horizontally stacks output representations.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 **Returns**: `Matrix[in_dtype]` — Matrix[in_dtype]: Concatenated transformed feature matrix.
@@ -115,7 +115,7 @@ Fits all transformers and returns concatenated transformed output.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 **Returns**: `Matrix[in_dtype]` — Matrix[in_dtype]: Concatenated transformed feature matrix.

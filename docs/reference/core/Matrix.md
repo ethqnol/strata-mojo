@@ -312,7 +312,7 @@ Extracts an $N \times K$ submatrix containing only the specified column indices 
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`indices`** | `List[Int]` | — |
+| **`indices`** | `List[Int]` | List of column indices to extract. |
 
 **Returns**: `Self` — Matrix[dtype]: Submatrix of shape (self.rows, len(indices)).
 
@@ -327,7 +327,7 @@ Extracts an $M \times D$ submatrix containing only the specified row indices in 
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`indices`** | `List[Int]` | — |
+| **`indices`** | `List[Int]` | List of row indices to extract. |
 
 **Returns**: `Self` — Matrix[dtype]: Submatrix of shape (len(indices), self.cols).
 
@@ -400,7 +400,7 @@ Horizontally stacks a list of matrices with matching row counts.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`matrices`** | `List[Matrix[dtype]]` | — |
+| **`matrices`** | `List[Matrix[dtype]]` | List of Matrix instances to concatenate along axis 1. |
 | **`A`** | `Matrix[dtype]` | — |
 | **`B`** | `Matrix[dtype]` | — |
 
@@ -420,7 +420,7 @@ Vertically stacks a list of matrices with matching column counts.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`matrices`** | `List[Matrix[dtype]]` | — |
+| **`matrices`** | `List[Matrix[dtype]]` | List of Matrix instances to concatenate along axis 0. |
 | **`A`** | `Matrix[dtype]` | — |
 | **`B`** | `Matrix[dtype]` | — |
 

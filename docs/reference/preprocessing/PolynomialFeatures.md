@@ -79,7 +79,7 @@ Compute the number of output features and combination powers.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input feature matrix with shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 ---
@@ -96,7 +96,7 @@ Transform data matrix X to polynomial feature combinations.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Data matrix with shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 **Returns**: `Matrix[in_dtype]` — Matrix[in_dtype]: Expanded polynomial matrix with shape (n_samples, n_output_features_).
@@ -115,7 +115,7 @@ Fit to data, then transform it.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input matrix with shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 **Returns**: `Matrix[in_dtype]` — Matrix[in_dtype]: Expanded polynomial matrix.

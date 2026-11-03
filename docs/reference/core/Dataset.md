@@ -44,10 +44,6 @@ Initialize a Dataset from records and targets.
 def __init__(out self, var records: Matrix[Self.feat_dtype], var targets: List[Scalar[Self.target_dtype]], var feature_names: List[String], var target_names: List[String])
 ```
 
-```mojo
-def __init__(out self, *, deinit move: Self)
-```
-
 ---
 
 ## Attributes

@@ -46,12 +46,6 @@ Initialize the MultinomialNB classifier.
 | **`fit_prior`** | `Bool` | Whether to learn class prior probabilities. Default True. |
 | **`class_prior`** | `List[Scalar[Self.compute_dtype]]` | Prior probabilities of the classes. Default empty. |
 
-```mojo
-def __init__(out self, *, deinit move: Self)
-```
-
-Moves an existing MultinomialNB instance.
-
 ---
 
 ## Attributes
@@ -95,8 +89,8 @@ Fit Multinomial Naive Bayes using dense feature matrix X and target labels y.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[feat_dtype]` | Non-negative training feature matrix of shape $(N, D)$. |
+| **`y`** | `List[Scalar[target_dtype]]` | Target class labels of length $N$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---
@@ -113,7 +107,7 @@ Predict class log probabilities for dense matrix X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 
 **Returns**: `Matrix[feat_dtype]` — Matrix[feat_dtype]: Log probability matrix of shape $(N, K)$.
 
@@ -132,7 +126,7 @@ Predict class probability distributions for dense matrix X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `Matrix[feat_dtype]` — Matrix[feat_dtype]: Normalized probability matrix of shape $(N, K)$.
@@ -152,7 +146,7 @@ Predict class labels for dense feature matrix X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `List[Int]` — List[Int]: Predicted class labels of length $N$.

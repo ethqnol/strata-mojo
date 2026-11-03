@@ -67,7 +67,7 @@ Fit label encoder on target vector y.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`y`** | `List[Scalar[in_dtype]]` | Target vector / class labels. |
+| **`y`** | `List[Scalar[in_dtype]]` | Target label vector. |
 
 ---
 
@@ -80,7 +80,7 @@ Transform target labels to normalized encoding indices.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`y`** | `List[Scalar[in_dtype]]` | Target vector / class labels. |
+| **`y`** | `List[Scalar[in_dtype]]` | Target label vector to transform. |
 
 **Returns**: `List[Int]` — List[Int]: Encoded integer labels in range [0, n_classes - 1].
 
@@ -95,7 +95,7 @@ Fit label encoder and return encoded integer labels.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`y`** | `List[Scalar[in_dtype]]` | Target vector / class labels. |
+| **`y`** | `List[Scalar[in_dtype]]` | Target label vector. |
 
 **Returns**: `List[Int]` — List[Int]: Encoded integer labels.
 
@@ -110,7 +110,7 @@ Transform integer labels back to original encoding.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`out_dtype`** | — | Output precision data type. Default compute_dtype. |
+| **`y`** | `List[Int]` | Encoded integer labels. |
 
 **Returns**: `List[Scalar[out_dtype]]` — List[Scalar[out_dtype]]: Reconstructed original labels.
 ---

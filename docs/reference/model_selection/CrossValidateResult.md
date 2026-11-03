@@ -57,7 +57,7 @@ Returns the position of a metric name within this result.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`metric`** | `String` | — |
+| **`metric`** | `String` | Name of a metric evaluated during cross-validation. |
 
 **Returns**: `Int` — Index into the metrics, test_scores, and train_scores lists.
 
@@ -72,7 +72,7 @@ Returns the per-fold validation scores for a named metric.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`metric`** | `String` | — |
+| **`metric`** | `String` | Name of a metric evaluated during cross-validation. |
 
 **Returns**: `List[Float64]` — One score per fold, in fold order.
 
@@ -87,7 +87,7 @@ Returns the per-fold training scores for a named metric.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`metric`** | `String` | — |
+| **`metric`** | `String` | Name of a metric evaluated during cross-validation. |
 
 **Returns**: `List[Float64]` — One score per fold, in fold order.
 
@@ -107,13 +107,13 @@ Evaluates several regression metrics across K folds in one pass.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`estimator`** | `ModelType` | — |
+| **`estimator`** | `ModelType` | Model configuration cloned once per fold. |
 | **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[target_dtype]]` | Target vector / class labels. |
-| **`scoring`** | `List[String]` | — |
-| **`cv`** | `Int` | — |
-| **`return_train_score`** | `Bool` | — |
-| **`splits`** | `List[Split]` | — |
+| **`y`** | `List[Scalar[target_dtype]]` | Target values. |
+| **`scoring`** | `List[String]` | Names of the regression metrics to record. |
+| **`cv`** | `Int` | Number of cross-validation folds. |
+| **`return_train_score`** | `Bool` | Whether to also score the training rows of each fold. |
+| **`splits`** | `List[Split]` | Cross-validation folds to evaluate. |
 
 **Returns**: `CrossValidateResult` — Per-fold scores for every requested metric.
 

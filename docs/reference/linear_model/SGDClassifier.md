@@ -40,19 +40,19 @@ Initialize the SGDClassifier estimator.
 
 | Argument | Type | Description |
 | :--- | :--- | :--- |
-| **`loss`** | `String` | — |
-| **`penalty`** | `String` | — |
-| **`alpha`** | `Scalar[Self.compute_dtype]` | — |
-| **`l1_ratio`** | `Scalar[Self.compute_dtype]` | — |
-| **`fit_intercept`** | `Bool` | — |
-| **`max_iter`** | `Int` | — |
-| **`tol`** | `Scalar[Self.compute_dtype]` | — |
-| **`shuffle_data`** | `Bool` | — |
-| **`epsilon`** | `Scalar[Self.compute_dtype]` | — |
-| **`random_state`** | `Int` | — |
-| **`learning_rate`** | `String` | — |
-| **`eta0`** | `Scalar[Self.compute_dtype]` | — |
-| **`power_t`** | `Scalar[Self.compute_dtype]` | — |
+| **`loss`** | `String` | Loss function to use ('hinge', 'log_loss', 'modified_huber', 'squared_hinge'). Default 'hinge'. |
+| **`penalty`** | `String` | Regularization penalty ('l2', 'l1', 'elasticnet', 'none'). Default 'l2'. |
+| **`alpha`** | `Scalar[Self.compute_dtype]` | Regularization constant multiplier ($\alpha \ge 0$). Default 1e-4. |
+| **`l1_ratio`** | `Scalar[Self.compute_dtype]` | ElasticNet mixing parameter in [0, 1]. Default 0.15. |
+| **`fit_intercept`** | `Bool` | Whether to estimate an independent intercept term. Default True. |
+| **`max_iter`** | `Int` | Maximum number of passes over training data (epochs). Default 1000. |
+| **`tol`** | `Scalar[Self.compute_dtype]` | Stopping criterion threshold for loss changes. Default 1e-3. |
+| **`shuffle_data`** | `Bool` | Whether to shuffle data per epoch. Default True. |
+| **`epsilon`** | `Scalar[Self.compute_dtype]` | Epsilon parameter for huber loss. Default 0.1. |
+| **`random_state`** | `Int` | Seed for random shuffling. Default 42. |
+| **`learning_rate`** | `String` | Learning rate schedule ('optimal', 'constant', 'invscaling', 'adaptive'). Default 'optimal'. |
+| **`eta0`** | `Scalar[Self.compute_dtype]` | Initial learning rate. Default 0.0. |
+| **`power_t`** | `Scalar[Self.compute_dtype]` | Exponent for inverse scaling schedule. Default 0.5. |
 
 ---
 

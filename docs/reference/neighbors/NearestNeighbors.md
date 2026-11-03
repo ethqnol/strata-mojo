@@ -75,7 +75,7 @@ Fit the nearest neighbors estimator from the training dataset.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Training data matrix with shape (n_samples, n_features). |
 
 ---
 
@@ -91,8 +91,8 @@ Find the K-neighbors of points in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
-| **`n_neighbors`** | `Int` | — |
+| **`X`** | `Matrix[in_dtype]` | Query points matrix with shape (n_queries, n_features). |
+| **`n_neighbors`** | `Int` | Number of neighbors to return per query. If -1, uses estimator default. |
 
 **Returns**: `Tuple[ Matrix[in_dtype], Matrix[DType.int32] ]` — Tuple of: - Matrix[in_dtype]: Distances to neighbors with shape (n_queries, n_neighbors). - Matrix[DType.int32]: Indices of neighbors in the training dataset with shape (n_queries, n_neighbors).
 
@@ -107,8 +107,8 @@ Find the neighbors within a given radius of points in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
-| **`radius`** | `Float64` | — |
+| **`X`** | `Matrix[in_dtype]` | Query points matrix with shape (n_queries, n_features). |
+| **`radius`** | `Float64` | Neighborhood radius. If negative, uses estimator radius. |
 
 **Returns**: `Tuple[ List[List[Scalar[in_dtype]]], List[List[Int]] ]` — Tuple of: - List[List[Scalar[in_dtype]]]: Distances to each neighbor within radius. - List[List[Int]]: Indices of neighbors in the training dataset.
 ---

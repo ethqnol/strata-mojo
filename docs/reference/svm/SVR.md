@@ -38,20 +38,16 @@ def __init__(out self, C: Float64 = 1.0, epsilon: Float64 = 0.1, kernel: String 
 
 | Argument | Type | Description |
 | :--- | :--- | :--- |
-| **`C`** | `Float64` | — |
-| **`epsilon`** | `Float64` | — |
-| **`kernel`** | `String` | — |
-| **`degree`** | `Int` | — |
-| **`gamma`** | `String` | — |
-| **`gamma_val`** | `Float64` | — |
-| **`coef0`** | `Float64` | — |
-| **`tol`** | `Float64` | — |
-| **`fit_intercept`** | `Bool` | — |
-| **`max_iter`** | `Int` | — |
-
-```mojo
-def __init__(out self, *, deinit move: Self)
-```
+| **`C`** | `Float64` | Regularization parameter. Must be strictly positive. Default 1.0. |
+| **`epsilon`** | `Float64` | Epsilon-tube width within which no penalty is associated in the training loss function. Must be non-negative. Default 0.1. |
+| **`kernel`** | `String` | Kernel routine ('rbf', 'linear', 'poly', 'sigmoid'). Default 'rbf'. |
+| **`degree`** | `Int` | Degree of the polynomial kernel function. Default 3. |
+| **`gamma`** | `String` | Kernel coefficient mode ('scale' or 'auto'). Default 'scale'. |
+| **`gamma_val`** | `Float64` | Explicit numeric gamma. Overrides gamma mode when > 0. Default -1.0. |
+| **`coef0`** | `Float64` | Independent term in poly and sigmoid kernels. Default 0.0. |
+| **`tol`** | `Float64` | Tolerance for stopping criterion. Default 1e-3. |
+| **`fit_intercept`** | `Bool` | Whether to estimate an intercept term. Default True. |
+| **`max_iter`** | `Int` | Hard limit on solver iterations. Default 10000. |
 
 ---
 
@@ -95,8 +91,8 @@ Fits the kernel Support Vector Regressor on features X and targets y.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[feat_dtype]` | Training feature matrix of shape (n_samples, n_features). |
+| **`y`** | `List[Scalar[target_dtype]]` | Target values of length n_samples. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---
@@ -113,7 +109,7 @@ Predict continuous target values for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Input feature matrix of shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `List[Scalar[feat_dtype]]` — List[Scalar[feat_dtype]]: Predicted target values of length n_samples.

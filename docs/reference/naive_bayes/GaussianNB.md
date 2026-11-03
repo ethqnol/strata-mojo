@@ -42,12 +42,6 @@ Initialize the GaussianNB classifier.
 | **`var_smoothing`** | `Scalar[Self.compute_dtype]` | Portion of maximum variance added for numerical stability. Must be non-negative. Default 1e-9. |
 | **`priors`** | `List[Scalar[Self.compute_dtype]]` | Prior probabilities of the classes. Default empty. |
 
-```mojo
-def __init__(out self, *, deinit move: Self)
-```
-
-Moves an existing GaussianNB instance.
-
 ---
 
 ## Attributes
@@ -91,8 +85,8 @@ Fit Gaussian Naive Bayes according to X, y.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[feat_dtype]` | Training feature matrix of shape $(N, D)$. |
+| **`y`** | `List[Scalar[target_dtype]]` | Target class labels of length $N$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---
@@ -106,7 +100,7 @@ Predict class log probabilities for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 
 **Returns**: `Matrix[feat_dtype]` — Matrix[feat_dtype]: Log-probability matrix of shape $(N, K)$.
 
@@ -124,7 +118,7 @@ Predict class probability distributions for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `Matrix[feat_dtype]` — Matrix[feat_dtype]: Normalized probability matrix of shape $(N, K)$, where each row sums to 1.0.
@@ -143,7 +137,7 @@ Predict class labels for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `List[Int]` — List[Int]: Predicted class labels of length $N$.

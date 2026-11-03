@@ -70,7 +70,7 @@ Generates randomly permuted train and test indices for each split.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`n_samples`** | `Int` | — |
+| **`n_samples`** | `Int` | Total number of samples in the dataset. |
 | **`X`** | `Matrix[dtype]` | Feature matrix. |
 
 **Returns**: `List[Split]` — List of Split objects containing train and validation indices.

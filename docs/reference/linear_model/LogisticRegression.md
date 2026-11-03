@@ -85,8 +85,8 @@ Fits the logistic regression model on training data (X, y).
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[feat_dtype]` | Training feature matrix (N x D). |
+| **`y`** | `List[Scalar[target_dtype]]` | Discrete target class labels (length N). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---
@@ -103,7 +103,7 @@ Predict class probability distributions for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `Matrix[feat_dtype]` — Matrix[feat_dtype]: Probability matrix of shape $(N, K)$, where row $i$ contains the normalized probability distribution over $K$ classes.
@@ -122,7 +122,7 @@ Predict discrete class labels for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `List[Int]` — List[Int]: Predicted class labels vector of length $N$.

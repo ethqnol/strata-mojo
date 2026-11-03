@@ -75,7 +75,7 @@ Fits all transformers sequentially.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 ---
@@ -92,7 +92,7 @@ Sequentially applies transformations across all pipeline steps.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 **Returns**: `Matrix[in_dtype]` — Matrix[in_dtype]: Transformed output matrix.
@@ -111,7 +111,7 @@ Fits all transformers and returns the final transformed output representation.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 **Returns**: `Matrix[in_dtype]` — Matrix[in_dtype]: Final transformed output matrix.

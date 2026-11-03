@@ -71,7 +71,7 @@ Generates indices to split time-ordered data into train and test sets.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`n_samples`** | `Int` | — |
+| **`n_samples`** | `Int` | Total number of samples in the dataset. |
 | **`X`** | `Matrix[dtype]` | Feature matrix. |
 
 **Returns**: `List[Split]` — List of Split objects containing train and validation indices.

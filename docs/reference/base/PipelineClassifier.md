@@ -58,8 +58,8 @@ Fits the transformer on X, then fits the classifier on transformed features.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[in_target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
+| **`y`** | `List[Scalar[in_target_dtype]]` | Target class labels of length $N$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---
@@ -76,7 +76,7 @@ Transforms input features and predicts discrete class labels.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `List[Int]` — List[Int]: Predicted discrete class labels.
@@ -95,7 +95,7 @@ Transforms input features and predicts class probability distributions.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape $(N, D)$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `Matrix[feat_dtype]` — Matrix[feat_dtype]: Probability distribution matrix of shape $(N, K)$.

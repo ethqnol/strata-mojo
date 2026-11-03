@@ -8,6 +8,7 @@ along with unified search indices and the JSON data bundle for the interactive S
 """
 
 import json
+import os
 import re
 import shutil
 import textwrap
@@ -19,6 +20,49 @@ STRATA_DIR = ROOT_DIR / "strata"
 DOCS_DIR = ROOT_DIR / "docs"
 REF_DIR = DOCS_DIR / "reference"
 DOCS_BASE_URL = "https://ethqnol.github.io/strata-mojo"
+
+
+def resolve_and_sync_version() -> str:
+    """Resolve package version from STRATA_VERSION env var or pixi.toml and sync docs/README."""
+    pixi_file = ROOT_DIR / "pixi.toml"
+    pixi_text = pixi_file.read_text(encoding="utf-8") if pixi_file.exists() else ""
+
+    env_version = os.environ.get("STRATA_VERSION", "").strip().lstrip("v")
+    if env_version:
+        version = env_version
+        if pixi_text:
+            updated_pixi = re.sub(
+                r'^(version\s*=\s*")[^"]+(")',
+                rf"\g<1>{version}\2",
+                pixi_text,
+                count=1,
+                flags=re.MULTILINE,
+            )
+            if updated_pixi != pixi_text:
+                pixi_file.write_text(updated_pixi, encoding="utf-8")
+    else:
+        m = re.search(r'^version\s*=\s*"([^"]+)"', pixi_text, flags=re.MULTILINE)
+        version = m.group(1) if m else "0.2.1"
+
+    for md_path in (ROOT_DIR / "README.md", DOCS_DIR / "tutorials" / "quickstart.md"):
+        if md_path.exists():
+            text = md_path.read_text(encoding="utf-8")
+            updated = re.sub(r'strata\s*=\s*">=[0-9]+\.[0-9]+\.[0-9]+"', f'strata = ">={version}"', text)
+            if updated != text:
+                md_path.write_text(updated, encoding="utf-8")
+
+    index_html = DOCS_DIR / "index.html"
+    if index_html.exists():
+        html = index_html.read_text(encoding="utf-8")
+        updated_html = re.sub(
+            r'(<span class="version-badge">)v?[0-9]+\.[0-9]+\.[0-9]+(</span>)',
+            rf"\g<1>v{version}\2",
+            html,
+        )
+        if updated_html != html:
+            index_html.write_text(updated_html, encoding="utf-8")
+
+    return version
 
 try:
     from scripts.generate_sitemap import generate_sitemap
@@ -384,7 +428,7 @@ def extract_mojo_symbols(filepath: Path):
             fn_doc = fn_match.group(5) or ""
 
             if fn_name == "__init__":
-                if "copy: Self" in raw_fn_args:
+                if "copy: Self" in raw_fn_args or "move: Self" in raw_fn_args:
                     continue
                 fn_params_clean = " ".join([p.strip() for p in raw_fn_params.split("\n") if p.strip()]).rstrip(", ")
                 fn_args_clean = " ".join([a.strip() for a in raw_fn_args.split("\n") if a.strip()]).rstrip(", ")
@@ -696,9 +740,17 @@ def generate_symbol_markdown_page(mod_key: str, s: dict) -> str:
                             sig_types[m_arg.group(1)] = m_arg.group(2).split("=")[0].strip()
 
                 c_params = c_pdoc.get("parameters", []) or c_pdoc.get("args", [])
+                struct_args_map = {
+                    a["name"]: a.get("description", "")
+                    for a in (pdoc.get("args", []) or pdoc.get("parameters", []))
+                }
                 if not c_params and sig_types:
                     for s_name, s_type in sig_types.items():
-                        c_params.append({"name": s_name, "type": s_type, "description": "—"})
+                        c_params.append({
+                            "name": s_name,
+                            "type": s_type,
+                            "description": struct_args_map.get(s_name) or "—",
+                        })
 
                 if c_params:
                     md.append("| Argument | Type | Description |")
@@ -841,22 +893,26 @@ def generate_symbol_markdown_page(mod_key: str, s: dict) -> str:
 
                     for m in overloads:
                         m_pdoc = m.get("parsed_doc", {})
-                        m_params = m_pdoc.get("parameters", [])
-                        if not m_params and m["args"]:
-                            raw_args = split_args_safe(m["args"])
-                            for arg in raw_args:
+                        m_sig_types = {}
+                        if m["args"]:
+                            for arg in split_args_safe(m["args"]):
                                 if arg in ("self", "mut self", "out self", "var self"):
                                     continue
                                 arg_match = re.match(r"^([a-zA-Z0-9_]+)\s*:\s*(.+)$", arg)
                                 if arg_match:
-                                    aname = arg_match.group(1)
-                                    atype = arg_match.group(2).split("=")[0].strip()
-                                    adesc = "Feature matrix." if aname == "X" else ("Target vector / class labels." if aname == "y" else ("Dataset container." if aname == "dataset" else "—"))
-                                    m_params.append({"name": aname, "type": atype, "description": adesc})
+                                    m_sig_types[arg_match.group(1)] = arg_match.group(2).split("=")[0].strip()
+
+                        m_params = m_pdoc.get("args", []) or m_pdoc.get("parameters", [])
+                        if not m_params and m_sig_types:
+                            for aname, atype in m_sig_types.items():
+                                adesc = "Feature matrix." if aname == "X" else ("Target vector / class labels." if aname == "y" else ("Dataset container." if aname == "dataset" else "—"))
+                                m_params.append({"name": aname, "type": atype, "description": adesc})
 
                         for p in m_params:
                             p_copy = dict(p)
                             p_name = p_copy["name"]
+                            if not p_copy.get("type") and p_name in m_sig_types:
+                                p_copy["type"] = m_sig_types[p_name]
                             traits_str = s.get("traits", "")
                             if p_name == "dataset":
                                 if "Transformer" in traits_str:
@@ -1108,7 +1164,8 @@ def build_docs_site_bundle(all_symbols_index: list, module_symbols_map: dict):
 
 
 def main():
-    print("Generating Strata Reference Documentation (Individual Symbol Pages)...")
+    version = resolve_and_sync_version()
+    print(f"Generating Strata v{version} Reference Documentation (Individual Symbol Pages)...")
 
 
     # Clean previous reference dir to avoid stale files

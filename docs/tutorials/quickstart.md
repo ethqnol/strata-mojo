@@ -25,7 +25,7 @@ channels = [
 ]
 
 [dependencies]
-strata = ">=0.2.0"
+strata = ">=0.2.1"
 mojo = ">=1.0.0"
 
 # Task shortcut to automatically link LAPACK & BLAS shared libraries

@@ -78,7 +78,7 @@ Fit the OrdinalEncoder on feature matrix X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Categorical data matrix with shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 ---
@@ -95,7 +95,7 @@ Transform X to ordinal integer codes.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Data matrix with shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 **Returns**: `Matrix[in_dtype]` — Matrix[in_dtype]: Encoded ordinal matrix.
@@ -114,7 +114,7 @@ Fit to data, then transform it.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input matrix with shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix. *(Can be provided alternatively in place of X)* |
 
 **Returns**: `Matrix[in_dtype]` — Matrix[in_dtype]: Encoded ordinal matrix.
@@ -130,7 +130,7 @@ Convert the ordinal codes back to original category values.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Encoded data matrix with shape (n_samples, n_features). |
 
 **Returns**: `Matrix[in_dtype]` — Matrix[in_dtype]: Decoded matrix containing reconstructed categories.
 ---

@@ -37,16 +37,16 @@ def __init__(out self, criterion: String = "gini", splitter: String = "best", ma
 
 | Argument | Type | Description |
 | :--- | :--- | :--- |
-| **`criterion`** | `String` | — |
-| **`splitter`** | `String` | — |
-| **`max_depth`** | `Int` | — |
-| **`min_samples_split`** | `Int` | — |
-| **`min_samples_leaf`** | `Int` | — |
-| **`min_impurity_decrease`** | `Float64` | — |
-| **`max_features`** | `String` | — |
-| **`max_features_count`** | `Int` | — |
-| **`max_features_ratio`** | `Float64` | — |
-| **`random_state`** | `Int` | — |
+| **`criterion`** | `String` | The function to measure the quality of a split ('gini', 'entropy', 'log_loss'). Default 'gini'. |
+| **`splitter`** | `String` | Strategy used to choose the split at each node ('best', 'random'). Default 'best'. |
+| **`max_depth`** | `Int` | Maximum tree depth. -1 indicates unlimited depth. Default -1. |
+| **`min_samples_split`** | `Int` | Minimum samples required to split an internal node. Default 2. |
+| **`min_samples_leaf`** | `Int` | Minimum samples required to be at a leaf node. Default 1. |
+| **`min_impurity_decrease`** | `Float64` | Split threshold if impurity decrease >= this value. Default 0.0. |
+| **`max_features`** | `String` | Number of features to consider when looking for best split ('all', 'sqrt', 'log2', 'custom'). Default 'all'. |
+| **`max_features_count`** | `Int` | Explicit number of features to evaluate when max_features='custom'. Default -1. |
+| **`max_features_ratio`** | `Float64` | Proportion of features to evaluate when max_features='custom'. Default 0.0. |
+| **`random_state`** | `Int` | PRNG seed for deterministic feature and split selection. Default 42. |
 
 ---
 

@@ -63,8 +63,8 @@ Compute dense matrix product $C = A B$.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`A`** | `Matrix[dtype]` | — |
-| **`B`** | `Matrix[dtype]` | — |
+| **`A`** | `Matrix[dtype]` | Left matrix of shape $(M, K)$. |
+| **`B`** | `Matrix[dtype]` | Right matrix of shape $(K, N)$. |
 
 **Returns**: `Matrix[dtype]` — Matrix[dtype]: Output matrix product $C$ of shape $(M, N)$.
 
@@ -143,9 +143,9 @@ Solve linear least-squares problem $\min_x \|A x - b\|_2$ using SVD.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`A`** | `Matrix[dtype]` | — |
-| **`b`** | `List[Scalar[dtype]]` | — |
-| **`rcond`** | `Float64` | — |
+| **`A`** | `Matrix[dtype]` | Coefficient matrix of shape $(M, N)$. |
+| **`b`** | `List[Scalar[dtype]]` | Right-hand side vector of length $M$. |
+| **`rcond`** | `Float64` | Cutoff for small singular values. Default -1.0 (machine precision). |
 
 **Returns**: `List[Scalar[dtype]]` — List[Scalar[dtype]]: Least-squares solution vector $x$ of length $N$.
 

@@ -39,19 +39,19 @@ Initialize the SGDRegressor estimator.
 
 | Argument | Type | Description |
 | :--- | :--- | :--- |
-| **`loss`** | `String` | — |
-| **`penalty`** | `String` | — |
-| **`alpha`** | `Scalar[Self.compute_dtype]` | — |
-| **`l1_ratio`** | `Scalar[Self.compute_dtype]` | — |
-| **`fit_intercept`** | `Bool` | — |
-| **`max_iter`** | `Int` | — |
-| **`tol`** | `Scalar[Self.compute_dtype]` | — |
-| **`shuffle_data`** | `Bool` | — |
-| **`epsilon`** | `Scalar[Self.compute_dtype]` | — |
-| **`random_state`** | `Int` | — |
-| **`learning_rate`** | `String` | — |
-| **`eta0`** | `Scalar[Self.compute_dtype]` | — |
-| **`power_t`** | `Scalar[Self.compute_dtype]` | — |
+| **`loss`** | `String` | Loss function to be used ('squared_error', 'huber', 'epsilon_insensitive'). Default 'squared_error'. |
+| **`penalty`** | `String` | Regularization penalty ('l2', 'l1', 'elasticnet', 'none'). Default 'l2'. |
+| **`alpha`** | `Scalar[Self.compute_dtype]` | Regularization multiplier ($\alpha \ge 0$). Default 1e-4. |
+| **`l1_ratio`** | `Scalar[Self.compute_dtype]` | ElasticNet mixing parameter in [0, 1]. Default 0.15. |
+| **`fit_intercept`** | `Bool` | Whether the intercept should be estimated. Default True. |
+| **`max_iter`** | `Int` | Maximum number of passes over the training data (epochs). Default 1000. |
+| **`tol`** | `Scalar[Self.compute_dtype]` | Stopping criterion threshold for epoch loss improvement. Default 1e-3. |
+| **`shuffle_data`** | `Bool` | Whether to shuffle data after each epoch. Default True. |
+| **`epsilon`** | `Scalar[Self.compute_dtype]` | Epsilon parameter in the epsilon-insensitive or huber loss. Default 0.1. |
+| **`random_state`** | `Int` | Seed for random data shuffling. Default 42. |
+| **`learning_rate`** | `String` | Learning rate schedule ('constant', 'optimal', 'invscaling', 'adaptive'). Default 'invscaling'. |
+| **`eta0`** | `Scalar[Self.compute_dtype]` | Initial learning rate. Default 0.01. |
+| **`power_t`** | `Scalar[Self.compute_dtype]` | Exponent for inverse scaling learning rate. Default 0.25. |
 
 ---
 
@@ -90,8 +90,8 @@ Fit linear model with Stochastic Gradient Descent.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[in_target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[feat_dtype]` | Training feature matrix of shape $(N, D)$. |
+| **`y`** | `List[Scalar[in_target_dtype]]` | Target values vector of length $N$. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---

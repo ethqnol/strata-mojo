@@ -38,15 +38,15 @@ Initialize LinearSVC with hyperparameters.
 
 | Argument | Type | Description |
 | :--- | :--- | :--- |
-| **`C`** | `Float64` | — |
-| **`loss`** | `String` | — |
-| **`penalty`** | `String` | — |
-| **`dual`** | `Bool` | — |
-| **`tol`** | `Float64` | — |
-| **`fit_intercept`** | `Bool` | — |
-| **`intercept_scaling`** | `Float64` | — |
-| **`max_iter`** | `Int` | — |
-| **`random_state`** | `Int` | — |
+| **`C`** | `Float64` | Regularization parameter. The strength of the regularization is inversely proportional to C. Must be strictly positive. Default 1.0. |
+| **`loss`** | `String` | Loss function. Specifies the loss function. 'hinge' is standard SVM hinge loss; 'squared_hinge' is the square of the hinge loss. Default 'squared_hinge'. |
+| **`penalty`** | `String` | Norm used in the penalization. Only 'l2' is supported in dual mode. Default 'l2'. |
+| **`dual`** | `Bool` | Select the algorithm to solve the dual or primal optimization problem. Default True. |
+| **`tol`** | `Float64` | Tolerance for stopping criterion. Default 1e-4. |
+| **`fit_intercept`** | `Bool` | Whether to calculate the intercept for this model. Default True. |
+| **`intercept_scaling`** | `Float64` | When fit_intercept is True, instance vector x becomes [x, intercept_scaling]. Default 1.0. |
+| **`max_iter`** | `Int` | The maximum number of coordinate descent iterations to run. Default 1000. |
+| **`random_state`** | `Int` | Seed for pseudo-random number generator permutation. Default 42. |
 
 ---
 
@@ -90,8 +90,8 @@ Fit the linear support vector classification model according to the given traini
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[feat_dtype]` | Training feature matrix of shape (n_samples, n_features). |
+| **`y`** | `List[Scalar[target_dtype]]` | Target label list of length n_samples. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---
@@ -105,7 +105,7 @@ Predict confidence scores for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Input feature matrix of shape (n_samples, n_features). |
 
 **Returns**: `Matrix[Self.compute_dtype]` — Matrix[compute_dtype]: Shape (n_samples, 1) for binary classification, or (n_samples, n_classes) for multiclass classification.
 
@@ -123,7 +123,7 @@ Predict class labels for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Input feature matrix of shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `List[Int]` — List[Int]: Predicted class labels for each sample.
@@ -142,7 +142,7 @@ Probability estimates using calibrated decision scores.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Input feature matrix of shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `Matrix[feat_dtype]` — Matrix[feat_dtype]: Probability matrix of shape (n_samples, n_classes).

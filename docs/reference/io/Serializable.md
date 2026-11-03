@@ -59,8 +59,8 @@ Serializes a fitted estimator or transformer to disk.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`model`** | `T` | — |
-| **`path`** | `String` | — |
+| **`model`** | `T` | Fitted estimator or transformer instance. |
+| **`path`** | `String` | Destination filepath. |
 
 ---
 
@@ -73,7 +73,7 @@ Serializes a fitted estimator or transformer into an in-memory byte buffer.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`model`** | `T` | — |
+| **`model`** | `T` | Fitted estimator or transformer instance. |
 
 **Returns**: `List[UInt8]` — List[UInt8]: Packed binary byte buffer.
 
@@ -88,7 +88,7 @@ Deserializes a fitted estimator or transformer from disk.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`T`** | — | Concrete model struct type. |
+| **`path`** | `String` | Filepath of the serialized model binary. |
 
 **Returns**: `T` — T: Restored model instance with fitted state intact.
 
@@ -103,7 +103,7 @@ Deserializes a fitted estimator or transformer from an in-memory byte buffer.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`T`** | — | Concrete model struct type. |
+| **`bytes`** | `List[UInt8]` | Packed binary byte buffer. |
 
 **Returns**: `T` — T: Restored model instance with fitted state intact.
 

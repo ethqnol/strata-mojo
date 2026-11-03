@@ -84,8 +84,8 @@ Fit the k-nearest neighbors regressor from the training dataset.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[feat_dtype]` | Feature matrix of shape (n_samples, n_features). |
+| **`y`** | `List[Scalar[target_dtype]]` | Target continuous values vector of length n_samples. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---
@@ -102,7 +102,7 @@ Predict the continuous target values for the provided data.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Query feature matrix of shape (n_queries, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `List[Scalar[feat_dtype]]` — List[Scalar[feat_dtype]]: Predicted regression values.

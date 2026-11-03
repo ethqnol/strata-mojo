@@ -37,12 +37,12 @@ Initialize DBSCAN with hyperparameters.
 
 | Argument | Type | Description |
 | :--- | :--- | :--- |
-| **`eps`** | `Float64` | — |
-| **`min_samples`** | `Int` | — |
-| **`metric`** | `String` | — |
-| **`algorithm`** | `String` | — |
-| **`leaf_size`** | `Int` | — |
-| **`p`** | `Float64` | — |
+| **`eps`** | `Float64` | The maximum distance between two samples for one to be considered as in the neighborhood of the other. Default 0.5. |
+| **`min_samples`** | `Int` | The number of samples in a neighborhood for a point to be considered as a core point (including the point itself). Default 5. |
+| **`metric`** | `String` | The distance metric to use ('euclidean', 'l2', 'manhattan', 'l1', 'chebyshev', 'minkowski', 'cosine'). Default 'euclidean'. |
+| **`algorithm`** | `String` | Algorithm used to compute nearest neighborhoods ('auto', 'kd_tree', 'brute'). Default 'auto'. |
+| **`leaf_size`** | `Int` | Leaf size passed to KDTree when applicable. Default 30. |
+| **`p`** | `Float64` | The power of the Minkowski metric when metric='minkowski'. Default 2.0. |
 
 ---
 
@@ -83,7 +83,7 @@ Perform DBSCAN clustering from feature matrix X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input matrix with shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding data records. *(Overloaded alternative)* |
 
 ---
@@ -97,7 +97,7 @@ Compute clusters from X and return cluster labels.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Input matrix with shape (n_samples, n_features). |
 
 **Returns**: `List[Int]` — List[Int]: Cluster labels for each point in X. Noise is -1.
 
@@ -115,7 +115,7 @@ Predict cluster labels for new points based on nearest core sample.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[in_dtype]` | Query matrix with shape (n_queries, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding data records. *(Overloaded alternative)* |
 
 **Returns**: `List[Int]` — List[Int]: Predicted cluster labels (noise is -1).

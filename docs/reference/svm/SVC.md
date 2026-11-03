@@ -35,19 +35,15 @@ def __init__(out self, C: Float64 = 1.0, kernel: String = "rbf", degree: Int = 3
 
 | Argument | Type | Description |
 | :--- | :--- | :--- |
-| **`C`** | `Float64` | — |
-| **`kernel`** | `String` | — |
-| **`degree`** | `Int` | — |
-| **`gamma`** | `String` | — |
-| **`gamma_val`** | `Float64` | — |
-| **`coef0`** | `Float64` | — |
-| **`tol`** | `Float64` | — |
-| **`max_iter`** | `Int` | — |
-| **`decision_function_shape`** | `String` | — |
-
-```mojo
-def __init__(out self, *, deinit move: Self)
-```
+| **`C`** | `Float64` | Regularization parameter. Strength is inversely proportional to C. Must be strictly positive. Default 1.0. |
+| **`kernel`** | `String` | Kernel routine ('rbf', 'linear', 'poly', 'sigmoid'). Default 'rbf'. |
+| **`degree`** | `Int` | Degree for polynomial kernel function. Ignored by others. Default 3. |
+| **`gamma`** | `String` | Kernel scaling mode ('scale' or 'auto'). Default 'scale'. |
+| **`gamma_val`** | `Float64` | Explicit numeric gamma. When > 0, overrides gamma mode. Default -1.0. |
+| **`coef0`** | `Float64` | Independent term in poly and sigmoid kernels. Default 0.0. |
+| **`tol`** | `Float64` | Tolerance for stopping criterion. Default 1e-3. |
+| **`max_iter`** | `Int` | Hard limit on SMO solver iterations. Default 10000. |
+| **`decision_function_shape`** | `String` | Multiclass strategy ('ovr'). Default 'ovr'. |
 
 ---
 
@@ -94,8 +90,8 @@ Fits the kernel Support Vector Classifier on feature matrix X and labels y.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[feat_dtype]` | Training feature matrix of shape (n_samples, n_features). |
+| **`y`** | `List[Scalar[target_dtype]]` | Target class labels of length n_samples. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---
@@ -109,7 +105,7 @@ Predict confidence scores for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Input feature matrix of shape (n_samples, n_features). |
 
 **Returns**: `Matrix[Self.compute_dtype]` — Matrix[compute_dtype]: Shape (n_samples, 1) for binary, or (n_samples, n_classes) for multiclass.
 
@@ -127,7 +123,7 @@ Predict class labels for samples in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Input feature matrix of shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `List[Int]` — List[Int]: Predicted discrete class labels for each sample.
@@ -146,7 +142,7 @@ Probability estimates using calibrated decision scores.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
+| **`X`** | `Matrix[feat_dtype]` | Input feature matrix of shape (n_samples, n_features). |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 **Returns**: `Matrix[feat_dtype]` — Matrix[feat_dtype]: Probability matrix of shape (n_samples, n_classes).

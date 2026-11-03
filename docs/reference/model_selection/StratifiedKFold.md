@@ -68,7 +68,7 @@ Generates stratified train and test indices from target labels.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`y`** | `List[Scalar[target_dtype]]` | Target vector / class labels. |
+| **`y`** | `List[Scalar[target_dtype]]` | Target class labels of length N. |
 | **`X`** | `Matrix[feat_dtype]` | Feature matrix. |
 
 **Returns**: `List[Split]` — List of Split instances containing train and validation indices.

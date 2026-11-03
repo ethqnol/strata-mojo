@@ -37,15 +37,15 @@ def __init__(out self, n_clusters: Int = 8, init: String = "k-means++", max_iter
 
 | Argument | Type | Description |
 | :--- | :--- | :--- |
-| **`n_clusters`** | `Int` | — |
-| **`init`** | `String` | — |
-| **`max_iter`** | `Int` | — |
-| **`batch_size`** | `Int` | — |
-| **`tol`** | `Float64` | — |
-| **`max_no_improvement`** | `Int` | — |
-| **`n_init`** | `Int` | — |
-| **`reassignment_ratio`** | `Float64` | — |
-| **`random_state`** | `Int` | — |
+| **`n_clusters`** | `Int` | The number of clusters to form as well as the number of centroids to generate. Default 8. |
+| **`init`** | `String` | Method for initialization ('k-means++', 'random'). Default 'k-means++'. |
+| **`max_iter`** | `Int` | Maximum number of mini-batch iterations. Default 100. |
+| **`batch_size`** | `Int` | Size of mini-batches drawn per iteration. Default 1024. |
+| **`tol`** | `Float64` | Tolerance threshold for early stopping based on center shift. Default 1e-4. |
+| **`max_no_improvement`** | `Int` | Early stopping iteration count without inertia improvement. Default 10. |
+| **`n_init`** | `Int` | Number of random initialization attempts. Default 3. |
+| **`reassignment_ratio`** | `Float64` | Fraction of max count threshold for center reassignment. Default 0.01. |
+| **`random_state`** | `Int` | PRNG seed for reproducible centroid initializations. Default 42. |
 
 ---
 

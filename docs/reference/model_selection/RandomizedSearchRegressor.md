@@ -60,8 +60,8 @@ Cross-validates a random subset of candidates and fits the best one.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_feat_dtype]` | Feature matrix. |
-| **`y`** | `List[Scalar[in_target_dtype]]` | Target vector / class labels. |
+| **`X`** | `Matrix[in_feat_dtype]` | Feature training matrix. |
+| **`y`** | `List[Scalar[in_target_dtype]]` | Target values. |
 | **`dataset`** | `Dataset[feat_dtype, target_dtype]` | Dataset container holding feature matrix and targets. *(Can be provided alternatively in place of (X, y))*  |
 
 ---

@@ -71,8 +71,8 @@ Query the KDTree for the k-nearest neighbors of points in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
-| **`k`** | `Int` | — |
+| **`X`** | `Matrix[in_dtype]` | Query point matrix with shape (n_queries, n_features). |
+| **`k`** | `Int` | Number of nearest neighbors to return per query. Default 1. |
 
 **Returns**: `Tuple[ Matrix[in_dtype], Matrix[DType.int32] ]` — Tuple of: - Matrix[in_dtype]: Distances to neighbors with shape (n_queries, k). - Matrix[DType.int32]: Indices of neighbors in original data with shape (n_queries, k).
 
@@ -87,8 +87,8 @@ Find all points within distance r of points in X.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **`X`** | `Matrix[in_dtype]` | Feature matrix. |
-| **`r`** | `Float64` | — |
+| **`X`** | `Matrix[in_dtype]` | Query point matrix with shape (n_queries, n_features). |
+| **`r`** | `Float64` | Distance radius (must be > 0.0). |
 
 **Returns**: `Tuple[ List[List[Scalar[in_dtype]]], List[List[Int]] ]` — Tuple of: - List[List[Scalar[in_dtype]]]: Distances to each neighbor within radius. - List[List[Int]]: Dataset indices of neighbors within radius.
 ---
