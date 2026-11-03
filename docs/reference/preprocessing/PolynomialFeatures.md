@@ -1,7 +1,7 @@
 # `PolynomialFeatures`
 
 **Module**: [`strata.preprocessing`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Transformer`  
-**Source**: [`strata/preprocessing/polynomial.mojo`](file:////home/ewu/Code/Strata/strata/preprocessing/polynomial.mojo)
+**Source**: [`strata/preprocessing/polynomial.mojo`](file:////home/ewu/Code/strata-mojo/strata/preprocessing/polynomial.mojo)
 
 ```mojo
 struct PolynomialFeatures[compute_dtype: DType = DType.float64](Copyable, Movable, Transformer)

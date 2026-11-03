@@ -1,7 +1,7 @@
 # `Binarizer`
 
 **Module**: [`strata.preprocessing`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Transformer`  
-**Source**: [`strata/preprocessing/binarizer.mojo`](file:////home/ewu/Code/Strata/strata/preprocessing/binarizer.mojo)
+**Source**: [`strata/preprocessing/binarizer.mojo`](file:////home/ewu/Code/strata-mojo/strata/preprocessing/binarizer.mojo)
 
 ```mojo
 struct Binarizer[compute_dtype: DType = DType.float64](Copyable, Movable, Transformer)

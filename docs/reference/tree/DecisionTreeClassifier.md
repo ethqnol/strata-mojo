@@ -1,7 +1,7 @@
 # `DecisionTreeClassifier`
 
 **Module**: [`strata.tree`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable, Serializable`  
-**Source**: [`strata/tree/classifier.mojo`](file:////home/ewu/Code/Strata/strata/tree/classifier.mojo)
+**Source**: [`strata/tree/classifier.mojo`](file:////home/ewu/Code/strata-mojo/strata/tree/classifier.mojo)
 
 ```mojo
 struct DecisionTreeClassifier[compute_dtype: DType = DType.float64](Classifier, Copyable, Movable, Serializable)

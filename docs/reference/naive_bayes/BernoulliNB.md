@@ -1,7 +1,7 @@
 # `BernoulliNB`
 
 **Module**: [`strata.naive_bayes`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Classifier, Copyable, Movable, Serializable`  
-**Source**: [`strata/naive_bayes/bernoulli.mojo`](file:////home/ewu/Code/Strata/strata/naive_bayes/bernoulli.mojo)
+**Source**: [`strata/naive_bayes/bernoulli.mojo`](file:////home/ewu/Code/strata-mojo/strata/naive_bayes/bernoulli.mojo)
 
 ```mojo
 struct BernoulliNB[compute_dtype: DType = DType.float64](Classifier, Copyable, Movable, Serializable)

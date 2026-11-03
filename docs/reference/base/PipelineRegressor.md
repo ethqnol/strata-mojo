@@ -1,7 +1,7 @@
 # `PipelineRegressor`
 
 **Module**: [`strata.base`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor`  
-**Source**: [`strata/base/pipeline.mojo`](file:////home/ewu/Code/Strata/strata/base/pipeline.mojo)
+**Source**: [`strata/base/pipeline.mojo`](file:////home/ewu/Code/strata-mojo/strata/base/pipeline.mojo)
 
 ```mojo
 struct PipelineRegressor[T: Transformer, R: Regressor, target_dtype: DType = DType.float64](Copyable, Movable, Regressor)

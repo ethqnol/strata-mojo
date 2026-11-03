@@ -1,7 +1,7 @@
 # `PCA`
 
 **Module**: [`strata.decomposition`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Transformer`  
-**Source**: [`strata/decomposition/pca.mojo`](file:////home/ewu/Code/Strata/strata/decomposition/pca.mojo)
+**Source**: [`strata/decomposition/pca.mojo`](file:////home/ewu/Code/strata-mojo/strata/decomposition/pca.mojo)
 
 ```mojo
 struct PCA[compute_dtype: DType = DType.float64](Copyable, Movable, Transformer)

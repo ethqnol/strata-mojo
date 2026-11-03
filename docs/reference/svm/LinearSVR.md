@@ -1,7 +1,7 @@
 # `LinearSVR`
 
 **Module**: [`strata.svm`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`  
-**Source**: [`strata/svm/linear_svr.mojo`](file:////home/ewu/Code/Strata/strata/svm/linear_svr.mojo)
+**Source**: [`strata/svm/linear_svr.mojo`](file:////home/ewu/Code/strata-mojo/strata/svm/linear_svr.mojo)
 
 ```mojo
 struct LinearSVR[compute_dtype: DType = DType.float64](Copyable, Movable, Regressor, Serializable)

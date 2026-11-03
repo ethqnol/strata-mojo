@@ -1,7 +1,7 @@
 # `SparseMatrix`
 
 **Module**: [`strata.core`](index.md) &bull; **Kind**: `trait`  
-**Source**: [`strata/core/sparse.mojo`](file:////home/ewu/Code/Strata/strata/core/sparse.mojo)
+**Source**: [`strata/core/sparse.mojo`](file:////home/ewu/Code/strata-mojo/strata/core/sparse.mojo)
 
 ```mojo
 trait SparseMatrix

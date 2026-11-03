@@ -1,7 +1,7 @@
 # `Transformer`
 
 **Module**: [`strata.base`](index.md) &bull; **Kind**: `trait` &bull; **Traits**: `Estimator`  
-**Source**: [`strata/base/estimator.mojo`](file:////home/ewu/Code/Strata/strata/base/estimator.mojo)
+**Source**: [`strata/base/estimator.mojo`](file:////home/ewu/Code/strata-mojo/strata/base/estimator.mojo)
 
 ```mojo
 trait Transformer(Estimator)

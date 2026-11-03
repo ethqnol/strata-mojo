@@ -1,7 +1,7 @@
 # `DBSCAN`
 
 **Module**: [`strata.cluster`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Clusterer, Copyable, Movable`  
-**Source**: [`strata/cluster/dbscan.mojo`](file:////home/ewu/Code/Strata/strata/cluster/dbscan.mojo)
+**Source**: [`strata/cluster/dbscan.mojo`](file:////home/ewu/Code/strata-mojo/strata/cluster/dbscan.mojo)
 
 ```mojo
 struct DBSCAN[compute_dtype: DType = DType.float64](Clusterer, Copyable, Movable)

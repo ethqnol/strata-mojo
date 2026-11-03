@@ -1,7 +1,7 @@
 # `MatrixView`
 
 **Module**: [`strata.core`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `ArrayLike, Copyable, Movable`  
-**Source**: [`strata/core/view.mojo`](file:////home/ewu/Code/Strata/strata/core/view.mojo)
+**Source**: [`strata/core/view.mojo`](file:////home/ewu/Code/strata-mojo/strata/core/view.mojo)
 
 ```mojo
 struct MatrixView[dtype: DType, origin: Origin](ArrayLike, Copyable, Movable)

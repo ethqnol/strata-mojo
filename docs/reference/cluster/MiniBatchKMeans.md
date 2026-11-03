@@ -1,7 +1,7 @@
 # `MiniBatchKMeans`
 
 **Module**: [`strata.cluster`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Clusterer, Copyable, Movable`  
-**Source**: [`strata/cluster/minibatch_kmeans.mojo`](file:////home/ewu/Code/Strata/strata/cluster/minibatch_kmeans.mojo)
+**Source**: [`strata/cluster/minibatch_kmeans.mojo`](file:////home/ewu/Code/strata-mojo/strata/cluster/minibatch_kmeans.mojo)
 
 ```mojo
 struct MiniBatchKMeans[compute_dtype: DType = DType.float64](Clusterer, Copyable, Movable)

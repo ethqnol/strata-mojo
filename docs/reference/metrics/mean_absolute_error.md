@@ -1,7 +1,7 @@
 # `mean_absolute_error`
 
 **Module**: [`strata.metrics`](index.md) &bull; **Kind**: `function`  
-**Source**: [`strata/metrics/regression.mojo`](file:////home/ewu/Code/Strata/strata/metrics/regression.mojo)
+**Source**: [`strata/metrics/regression.mojo`](file:////home/ewu/Code/strata-mojo/strata/metrics/regression.mojo)
 
 ```mojo
 def mean_absolute_error[true_dtype: DType = DType.float64, pred_dtype: DType = DType.float64](y_true: List[Scalar[true_dtype]], y_pred: List[Scalar[pred_dtype]]) -> Float64

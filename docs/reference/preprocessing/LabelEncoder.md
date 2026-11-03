@@ -1,7 +1,7 @@
 # `LabelEncoder`
 
 **Module**: [`strata.preprocessing`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable`  
-**Source**: [`strata/preprocessing/encoders.mojo`](file:////home/ewu/Code/Strata/strata/preprocessing/encoders.mojo)
+**Source**: [`strata/preprocessing/encoders.mojo`](file:////home/ewu/Code/strata-mojo/strata/preprocessing/encoders.mojo)
 
 ```mojo
 struct LabelEncoder[compute_dtype: DType = DType.float64](Copyable, Movable)

@@ -1,7 +1,7 @@
 # `ColumnTransformer`
 
 **Module**: [`strata.compose`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Transformer`  
-**Source**: [`strata/compose/column_transformer.mojo`](file:////home/ewu/Code/Strata/strata/compose/column_transformer.mojo)
+**Source**: [`strata/compose/column_transformer.mojo`](file:////home/ewu/Code/strata-mojo/strata/compose/column_transformer.mojo)
 
 ```mojo
 struct ColumnTransformer[*Transformers: Transformer](Copyable, Movable, Transformer)

@@ -1,7 +1,7 @@
 # `DecisionTreeRegressor`
 
 **Module**: [`strata.tree`](index.md) &bull; **Kind**: `struct` &bull; **Traits**: `Copyable, Movable, Regressor, Serializable`  
-**Source**: [`strata/tree/regressor.mojo`](file:////home/ewu/Code/Strata/strata/tree/regressor.mojo)
+**Source**: [`strata/tree/regressor.mojo`](file:////home/ewu/Code/strata-mojo/strata/tree/regressor.mojo)
 
 ```mojo
 struct DecisionTreeRegressor[compute_dtype: DType = DType.float64](Copyable, Movable, Regressor, Serializable)

@@ -1,7 +1,7 @@
 # `euclidean_distance`
 
 **Module**: [`strata.neighbors`](index.md) &bull; **Kind**: `function`  
-**Source**: [`strata/neighbors/distance.mojo`](file:////home/ewu/Code/Strata/strata/neighbors/distance.mojo)
+**Source**: [`strata/neighbors/distance.mojo`](file:////home/ewu/Code/strata-mojo/strata/neighbors/distance.mojo)
 
 ```mojo
 def euclidean_distance[dtype_x: DType, dtype_y: DType = dtype_x](X: Matrix[dtype_x], row_x: Int, Y: Matrix[dtype_y], row_y: Int) -> Float64
