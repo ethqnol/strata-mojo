@@ -288,6 +288,15 @@
     "file": "strata/svm/svc.mojo"
   },
   {
+    "module": "svm",
+    "name": "SVR",
+    "kind": "struct",
+    "summary": "Epsilon-Support Vector Regression using non-linear kernels.",
+    "ref_file": "reference/svm/SVR",
+    "traits": "Copyable, Movable, Regressor, Serializable",
+    "file": "strata/svm/svr.mojo"
+  },
+  {
     "module": "tree",
     "name": "DecisionTreeClassifier",
     "kind": "struct",

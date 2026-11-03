@@ -66,11 +66,12 @@ MODULE_METADATA = {
     },
     "svm": {
         "title": "Support Vector Machines",
-        "description": "Linear and kernel Support Vector Classification (LinearSVC) and Regression (LinearSVR) with dual coordinate descent, Sequential Minimal Optimization (SMO), and kernel evaluation routines (Linear, RBF, Polynomial, Sigmoid).",
+        "description": "Linear and kernel Support Vector Classification (LinearSVC, SVC) and Regression (LinearSVR, SVR) with dual coordinate descent, Sequential Minimal Optimization (SMO), and kernel evaluation routines (Linear, RBF, Polynomial, Sigmoid).",
         "files": [
             "svm/linear_svc.mojo",
             "svm/linear_svr.mojo",
             "svm/svc.mojo",
+            "svm/svr.mojo",
         ]
     },
     "tree": {

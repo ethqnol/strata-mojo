@@ -1,6 +1,6 @@
 # `strata.svm`
 
-Linear and kernel Support Vector Classification (LinearSVC) and Regression (LinearSVR) with dual coordinate descent, Sequential Minimal Optimization (SMO), and kernel evaluation routines (Linear, RBF, Polynomial, Sigmoid).
+Linear and kernel Support Vector Classification (LinearSVC, SVC) and Regression (LinearSVR, SVR) with dual coordinate descent, Sequential Minimal Optimization (SMO), and kernel evaluation routines (Linear, RBF, Polynomial, Sigmoid).
 
 ---
 
@@ -11,3 +11,4 @@ Linear and kernel Support Vector Classification (LinearSVC) and Regression (Line
 | [`LinearSVC`](LinearSVC.md) | Linear Support Vector Classification. |
 | [`LinearSVR`](LinearSVR.md) | Linear Support Vector Regression. |
 | [`SVC`](SVC.md) | C-Support Vector Classification using non-linear kernels and SMO. |
+| [`SVR`](SVR.md) | Epsilon-Support Vector Regression using non-linear kernels. |
