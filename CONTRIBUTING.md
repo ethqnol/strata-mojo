@@ -191,38 +191,35 @@ struct LinearRegression[
 
 ## 6. Roadmap & Priorities
 
-Current implementation status and planned roadmap items:
+Current implementation status and release roadmap:
 
-### Implemented
-* **Core & Linear Algebra**: `Matrix[DType]`, `MatrixView`, `CSRMatrix`, `CSCMatrix`, LAPACK bindings (SVD, QR, Cholesky, Solve, Eigh, LU), SIMD kernels.
-* **Composition**: `Pipeline`, `ColumnTransformer`, zero-copy binary serialization (`strata.io`).
-* **Linear Models**: `LinearRegression` (analytical OLS), `Ridge`, `Lasso` (coordinate descent), `ElasticNet`, `LogisticRegression`, `SGDClassifier`, `SGDRegressor`.
-* **Support Vector Machines**: `LinearSVC` (L1/L2 hinge loss classification via Dual Coordinate Descent), `LinearSVR` (epsilon-insensitive loss regression with active set shrinking), `SVC` & `SVR` (non-linear kernel classification and regression with RBF, poly, linear, and sigmoid kernels via SMO).
-* **Trees & Ensembles**: `DecisionTreeClassifier`, `DecisionTreeRegressor`, `RandomForestClassifier`, `RandomForestRegressor`, `HistGradientBoostingClassifier`, `HistGradientBoostingRegressor`.
-* **Neighbors & Clustering**: `NearestNeighbors`, `KDTree` (k-NN and radius queries), `KNeighborsClassifier`, `KNeighborsRegressor`, `KMeans`, `MiniBatchKMeans`, `DBSCAN` (spatial density clustering with noise detection).
-* **Dimensionality Reduction**: `PCA`, `TruncatedSVD` (dense and sparse).
-* **Preprocessing**: `StandardScaler`, `MinMaxScaler`, `RobustScaler`, `Normalizer`, `OneHotEncoder`, `OrdinalEncoder`, `LabelEncoder`, `SimpleImputer`, `Binarizer`, `PolynomialFeatures`.
-* **Naive Bayes**: `GaussianNB` (continuous features with adaptive variance smoothing), `MultinomialNB` (discrete counts with dense and sparse `CSRMatrix` acceleration), `BernoulliNB` (multivariate binary models with binarization), `ComplementNB` (imbalanced text classification).
-* **Model Selection & Metrics**: `train_test_split`, `KFold`, `StratifiedKFold`, `TimeSeriesSplit`, `ShuffleSplit`, `StratifiedShuffleSplit`, `GridSearchCV`, `RandomizedSearchCV`, `cross_val_score`, `cross_val_predict`, regression/classification/clustering metrics.
+### Release v0.3.0 Roadmap
+- [x] **Non-linear Kernel SVMs**:
+  - [x] Sequential minimal optimization (SMO) kernel solver with active set shrinking.
+  - [x] `SVC`: RBF, polynomial, linear, sigmoid kernels, multiclass OvR/OvO, probability calibration.
+  - [x] `SVR`: Epsilon-insensitive dual coordinate descent regression, kernel matrix caching.
+- [ ] **Density & Spatial Clustering**:
+  - [ ] `HDBSCAN` (hierarchical density-based spatial clustering with noise identification).
+  - [ ] `OPTICS` (ordering points to identify clustering structure).
+  - [ ] `KModes` (categorical clustering).
+- [ ] **Probabilistic Models**:
+  - [ ] `GaussianMixture` (Expectation-Maximization with full, tied, diagonal, and spherical covariances).
+  - [ ] `CategoricalNB` (discrete categorical feature support).
+- [ ] **Ensemble Meta-Estimators**:
+  - [ ] `VotingClassifier` & `VotingRegressor` (hard and soft voting).
+  - [ ] `StackingClassifier` & `StackingRegressor` (multi-layer stacked generalizations).
+  - [ ] `BaggingClassifier` & `BaggingRegressor`.
 
-### Next Priorities
-1. **Multi-Threading / Parallelization** *(Deferred until Mojo standard library natively exposes threading/concurrency)*:
-   - Parallel tree training for `RandomForest` via worker threads.
-   - Parallel fold evaluation in `GridSearchCV` / `cross_val_score`.
-   - Threaded batch distance calculations in `NearestNeighbors`.
-2. **Clustering & Spatial**:
-   - `HDBSCAN` (hierarchical density-based clustering).
-   - `OPTICS` (ordering points to identify clustering structure).
-   - `KModes` (categorical clustering).
-3. **Probabilistic Models**:
-   - `CategoricalNB` (discrete categorical features).
-   - `GaussianMixture` (EM algorithm with spherical, diag, full covariance).
-4. **Meta-Estimators**:
-   - `VotingClassifier`, `VotingRegressor`, `StackingClassifier`, `StackingRegressor`.
-   - `BaggingClassifier`, `BaggingRegressor`.
-5. **Ecosystem & Interop**:
-   - Python bindings for direct drop-in use in Python workflows.
-   - ONNX export for tree and linear models.
+### Future Roadmap
+- [ ] **Multi-Threading / Parallelization** *(Deferred until Mojo standard library natively exposes threading/concurrency)*:
+  - [ ] Parallel tree training for `RandomForest` via worker threads.
+  - [ ] Parallel fold evaluation in `GridSearchCV` / `cross_val_score`.
+  - [ ] Threaded batch distance calculations in `NearestNeighbors`.
+- [ ] **Ecosystem & Interop**:
+  - [ ] Native Python C-extension bindings for direct drop-in usage from Python.
+  - [ ] ONNX export pipeline for tree and linear estimators.
+- [ ] **GPU Acceleration**:
+  - [ ] Native Mojo GPU kernels for GEMM, distance computations, and tree split evaluations.
 
 ---
 
