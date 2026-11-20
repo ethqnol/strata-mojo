@@ -150,6 +150,7 @@ from .naive_bayes import (
     MultinomialNB,
     BernoulliNB,
     ComplementNB,
+    CategoricalNB,
 )
 from .io import (
     BufferWriter,
