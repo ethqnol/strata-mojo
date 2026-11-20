@@ -27,6 +27,8 @@ from ..io.serializer import (
 )
 from ._gmm_math import (
     EStepResult,
+    _GMMState,
+    _copy_matrix_list,
     _estimate_gaussian_nk_and_means,
     _estimate_covariances_full,
     _estimate_covariances_tied,
@@ -83,49 +85,6 @@ struct GaussianSample[dtype: DType = DType.float64](Copyable, Movable):
         """Move an existing GaussianSample container."""
         self.X = move.X^
         self.y = move.y^
-
-
-struct _GMMState[dtype: DType = DType.float64](Copyable, Movable):
-    """Internal snapshot of fitted mixture parameters across EM restarts."""
-
-    var weights: List[Scalar[Self.dtype]]
-    var means: Matrix[Self.dtype]
-    var covariances: List[Matrix[Self.dtype]]
-    var precisions_cholesky: List[Matrix[Self.dtype]]
-
-    def __init__(
-        out self,
-        var weights: List[Scalar[Self.dtype]],
-        var means: Matrix[Self.dtype],
-        var covariances: List[Matrix[Self.dtype]],
-        var precisions_cholesky: List[Matrix[Self.dtype]],
-    ):
-        self.weights = weights^
-        self.means = means^
-        self.covariances = covariances^
-        self.precisions_cholesky = precisions_cholesky^
-
-    def __init__(out self, *, copy: Self):
-        self.weights = copy.weights.copy()
-        self.means = copy.means.copy()
-        self.covariances = _copy_matrix_list(copy.covariances)
-        self.precisions_cholesky = _copy_matrix_list(copy.precisions_cholesky)
-
-    def __init__(out self, *, deinit move: Self):
-        self.weights = move.weights^
-        self.means = move.means^
-        self.covariances = move.covariances^
-        self.precisions_cholesky = move.precisions_cholesky^
-
-
-def _copy_matrix_list[
-    dtype: DType
-](src: List[Matrix[dtype]]) -> List[Matrix[dtype]]:
-    """Deep-copy a list of dense Matrix containers."""
-    var out = List[Matrix[dtype]](capacity=len(src))
-    for i in range(len(src)):
-        out.append(src[i].copy())
-    return out^
 
 
 def _list_to_col_matrix[

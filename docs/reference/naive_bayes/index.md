@@ -1,6 +1,6 @@
 # `strata.naive_bayes`
 
-GaussianNB for continuous features, MultinomialNB for discrete counts, BernoulliNB for multivariate binary/boolean features, and ComplementNB for imbalanced text classification.
+GaussianNB for continuous features, MultinomialNB for discrete counts, BernoulliNB for multivariate binary/boolean features, ComplementNB for imbalanced text classification, and CategoricalNB for integer-coded categorical features.
 
 ---
 
@@ -12,3 +12,4 @@ GaussianNB for continuous features, MultinomialNB for discrete counts, Bernoulli
 | [`MultinomialNB`](MultinomialNB.md) | Multinomial Naive Bayes classifier for multinomially distributed count data. |
 | [`BernoulliNB`](BernoulliNB.md) | Bernoulli Naive Bayes classifier for multivariate Bernoulli models. |
 | [`ComplementNB`](ComplementNB.md) | Complement Naive Bayes classifier (Rennie et al., 2003). |
+| [`CategoricalNB`](CategoricalNB.md) | Categorical Naive Bayes classifier for categorically distributed features. |

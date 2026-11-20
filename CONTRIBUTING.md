@@ -69,6 +69,8 @@ pixi run test-linear-regression   # Analytical linear regression solvers
 pixi run test-logistic-regression # Logistic regression
 pixi run test-metrics             # Classification, regression, and clustering metrics
 pixi run test-model-selection     # KFold, TimeSeriesSplit, cross_val_score, search
+pixi run test-categorical-nb      # Categorical Naive Bayes classifier
+pixi run test-mixture             # GaussianMixture math engine and EM estimator
 ```
 
 ### Building & Precompiling
@@ -94,7 +96,10 @@ Strata/
 │   ├── model_selection/  # Cross-validation splitters, grid search, random search
 │   ├── metrics/          # Scoring metrics (regression, classification, clustering)
 │   ├── linear_model/     # LinearRegression, Ridge, Lasso, ElasticNet, Logistic, SGD
-│   ├── cluster/          # KMeans, MiniBatchKMeans
+│   ├── svm/              # LinearSVC, LinearSVR, SVC, SVR
+│   ├── naive_bayes/      # GaussianNB, MultinomialNB, BernoulliNB, ComplementNB, CategoricalNB
+│   ├── cluster/          # KMeans, MiniBatchKMeans, DBSCAN
+│   ├── mixture/          # GaussianMixture
 │   ├── tree/             # DecisionTreeClassifier, DecisionTreeRegressor
 │   ├── ensemble/         # RandomForest, HistGradientBoosting
 │   ├── decomposition/    # PCA, TruncatedSVD
@@ -202,9 +207,9 @@ Current implementation status and release roadmap:
   - [ ] `HDBSCAN` (hierarchical density-based spatial clustering with noise identification).
   - [ ] `OPTICS` (ordering points to identify clustering structure).
   - [ ] `KModes` (categorical clustering).
-- [ ] **Probabilistic Models**:
-  - [ ] `GaussianMixture` (Expectation-Maximization with full, tied, diagonal, and spherical covariances).
-  - [ ] `CategoricalNB` (discrete categorical feature support).
+- [x] **Probabilistic Models**:
+  - [x] `GaussianMixture` (Expectation-Maximization with full, tied, diagonal, and spherical covariances).
+  - [x] `CategoricalNB` (discrete categorical feature support).
 - [ ] **Ensemble Meta-Estimators**:
   - [ ] `VotingClassifier` & `VotingRegressor` (hard and soft voting).
   - [ ] `StackingClassifier` & `StackingRegressor` (multi-layer stacked generalizations).
