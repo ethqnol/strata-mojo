@@ -387,6 +387,15 @@
     "file": "strata/naive_bayes/complement.mojo"
   },
   {
+    "module": "naive_bayes",
+    "name": "CategoricalNB",
+    "kind": "struct",
+    "summary": "Categorical Naive Bayes classifier for categorically distributed features.",
+    "ref_file": "reference/naive_bayes/CategoricalNB",
+    "traits": "Classifier, Copyable, Movable, Serializable",
+    "file": "strata/naive_bayes/categorical.mojo"
+  },
+  {
     "module": "compose",
     "name": "ColumnTransformer",
     "kind": "struct",
@@ -421,6 +430,24 @@
     "ref_file": "reference/cluster/DBSCAN",
     "traits": "Clusterer, Copyable, Movable",
     "file": "strata/cluster/dbscan.mojo"
+  },
+  {
+    "module": "mixture",
+    "name": "GaussianSample",
+    "kind": "struct",
+    "summary": "Generated synthetic samples and component labels from GaussianMixture.sample.",
+    "ref_file": "reference/mixture/GaussianSample",
+    "traits": "Copyable, Movable",
+    "file": "strata/mixture/gaussian_mixture.mojo"
+  },
+  {
+    "module": "mixture",
+    "name": "GaussianMixture",
+    "kind": "struct",
+    "summary": "Gaussian Mixture Model trained with Expectation-Maximization (EM).",
+    "ref_file": "reference/mixture/GaussianMixture",
+    "traits": "Clusterer, Copyable, Movable, Serializable",
+    "file": "strata/mixture/gaussian_mixture.mojo"
   },
   {
     "module": "decomposition",

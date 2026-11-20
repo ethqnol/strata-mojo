@@ -31,7 +31,7 @@ channels = [
 ]
 
 [dependencies]
-strata = ">=0.2.1"
+strata = ">=0.2.2"
 mojo = ">=1.0.0"
 
 # Task shortcut to automatically link LAPACK & BLAS shared libraries
@@ -88,7 +88,7 @@ Strata combines Mojo's compile-time metaprogramming and hardware SIMD vectorizat
 
 > [!NOTE]
 > **Execution Modes**:
-> - **Pure Mojo Routines (Zero External Dependencies)**: Decision Trees, Random Forests, Gradient Boosting, SGD, Coordinate Descent (Lasso/ElasticNet), KMeans, Scalers, Encoders, ColumnTransformer, KDTree, Metrics, Model Selection, and Serialization. Run directly with `mojo run main.mojo`.
+> - **Pure Mojo Routines (Zero External Dependencies)**: Decision Trees, Random Forests, Gradient Boosting, SGD, Coordinate Descent (Lasso/ElasticNet), KMeans, GaussianMixture, Naive Bayes (including CategoricalNB), Scalers, Encoders, ColumnTransformer, KDTree, Metrics, Model Selection, and Serialization. Run directly with `mojo run main.mojo`.
 > - **LAPACK & BLAS Accelerated Solvers**: `LinearRegression` (analytical solvers), `Ridge`, `LogisticRegression` (GEMM-accelerated), `NearestNeighbors` / `KNeighbors` (GEMM distance matrix), `PCA`, `TruncatedSVD`, and core matrix factorizations (`svd`, `qr`, `inv`, `eigh`, `cholesky`, `solve`, `lstsq`, `gemm`). Run with `pixi run start` or pass `-Xlinker -L$CONDA_PREFIX/lib -Xlinker -llapack -Xlinker -lblas`.
 
 ### Linear Algebra & Matrix Operations
@@ -190,10 +190,17 @@ def main() raises:
     var svr_preds = svr.predict(X_test)
 ```
 
-### Naive Bayes (MultinomialNB, BernoulliNB, ComplementNB)
+### Naive Bayes (MultinomialNB, BernoulliNB, ComplementNB, CategoricalNB)
 
 ```mojo
-from strata import Matrix, CSRMatrix, MultinomialNB, BernoulliNB, ComplementNB
+from strata import (
+    Matrix,
+    CSRMatrix,
+    MultinomialNB,
+    BernoulliNB,
+    ComplementNB,
+    CategoricalNB,
+)
 
 def main() raises:
     # Text count classification (supports dense Matrix and sparse CSRMatrix)
@@ -210,6 +217,27 @@ def main() raises:
     var cnb = ComplementNB(alpha=1.0, norm=True)
     cnb.fit(X_counts, y_train)
     var cnb_preds = cnb.predict(X_counts)
+
+    # Discrete integer-coded categorical features
+    var cat_nb = CategoricalNB(alpha=1.0)
+    cat_nb.fit(X_cats, y_train)
+    var cat_probs = cat_nb.predict_proba(X_cats)
+```
+
+### Gaussian Mixture Models (GaussianMixture)
+
+```mojo
+from strata import Matrix, GaussianMixture
+
+def main() raises:
+    var gmm = GaussianMixture(
+        n_components=3, covariance_type="full", random_state=42
+    )
+    gmm.fit(X_train)
+    var labels = gmm.predict(X_test)
+    var probs = gmm.predict_proba(X_test)
+    var bic_val = gmm.bic(X_train)
+    var drawn = gmm.sample(n_samples=100, random_state=42)
 ```
 
 ### Model Persistence & Serialization
@@ -242,7 +270,8 @@ def main() raises:
   - `interop`: NumPy and SciPy sparse conversions.
 - **`strata.linear_model`**: `LinearRegression`, `Ridge`, `Lasso` (coordinate descent), `ElasticNet`, `LogisticRegression` (binary and multinomial), `SGDRegressor`, `SGDClassifier`.
 - **`strata.svm`**: `LinearSVC` (L1/L2 hinge loss classification via Dual Coordinate Descent), `LinearSVR` (epsilon-insensitive loss regression with active set shrinking).
-- **`strata.naive_bayes`**: `GaussianNB` (adaptive variance smoothing), `MultinomialNB` (discrete counts with dense/sparse CSR acceleration), `BernoulliNB` (multivariate binary models with binarization), `ComplementNB` (imbalanced text classification).
+- **`strata.naive_bayes`**: `GaussianNB` (adaptive variance smoothing), `MultinomialNB` (discrete counts with dense/sparse CSR acceleration), `BernoulliNB` (multivariate binary models with binarization), `ComplementNB` (imbalanced text classification), `CategoricalNB` (integer-coded categorical feature likelihoods with Laplace smoothing and `min_categories`).
+- **`strata.mixture`**: `GaussianMixture` (Expectation-Maximization density estimation and soft clustering with `full`, `tied`, `diag`, and `spherical` covariances, `predict_proba`, `score_samples`, `aic`/`bic`, `sample`), `GaussianSample`.
 - **`strata.tree`**: `DecisionTreeClassifier`, `DecisionTreeRegressor` (with Gini, Entropy, MSE, MAE criteria).
 - **`strata.ensemble`**: `RandomForestClassifier`, `RandomForestRegressor` (with OOB evaluation and soft voting), `HistGradientBoostingClassifier`, `HistGradientBoostingRegressor` (with UInt8 binning, histogram subtraction, and early stopping).
 - **`strata.compose`**: `ColumnTransformer` (heterogeneous feature transformers applied to designated subsets of columns with configurable remainder routing).

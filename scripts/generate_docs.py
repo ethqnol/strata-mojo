@@ -137,12 +137,13 @@ MODULE_METADATA = {
     },
     "naive_bayes": {
         "title": "Naive Bayes Classifiers",
-        "description": "GaussianNB for continuous features, MultinomialNB for discrete counts, BernoulliNB for multivariate binary/boolean features, and ComplementNB for imbalanced text classification.",
+        "description": "GaussianNB for continuous features, MultinomialNB for discrete counts, BernoulliNB for multivariate binary/boolean features, ComplementNB for imbalanced text classification, and CategoricalNB for integer-coded categorical features.",
         "files": [
             "naive_bayes/gaussian.mojo",
             "naive_bayes/multinomial.mojo",
             "naive_bayes/bernoulli.mojo",
             "naive_bayes/complement.mojo",
+            "naive_bayes/categorical.mojo",
         ]
     },
     "compose": {
@@ -159,6 +160,13 @@ MODULE_METADATA = {
             "cluster/kmeans.mojo",
             "cluster/minibatch_kmeans.mojo",
             "cluster/dbscan.mojo",
+        ]
+    },
+    "mixture": {
+        "title": "Gaussian Mixture Models",
+        "description": "Probabilistic density estimation and soft clustering via Expectation-Maximization (GaussianMixture with full, tied, diag, and spherical covariances).",
+        "files": [
+            "mixture/gaussian_mixture.mojo",
         ]
     },
     "decomposition": {

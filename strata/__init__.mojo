@@ -109,6 +109,7 @@ from .linear_model import (
 )
 from .decomposition import PCA, TruncatedSVD
 from .cluster import KMeans, MiniBatchKMeans, DBSCAN
+from .mixture import GaussianMixture, GaussianSample
 from .svm import LinearSVC, LinearSVR, SVC, SVR
 from .metrics import (
     mean_squared_error,
@@ -150,6 +151,7 @@ from .naive_bayes import (
     MultinomialNB,
     BernoulliNB,
     ComplementNB,
+    CategoricalNB,
 )
 from .io import (
     BufferWriter,
